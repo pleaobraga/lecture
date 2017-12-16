@@ -6,7 +6,5 @@ export const config = {
 }
 
 export const getCategory = () => {
-
-    axios.get(`${constant.URL_BASE}/categories`, config)
-        .then( category => category );
+    return axios.get(`${constant.URL_BASE}/categories`, config);
 }

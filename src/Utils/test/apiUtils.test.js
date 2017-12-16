@@ -14,7 +14,7 @@ describe('apiUtils', () => {
         expect(config).toEqual(headers)
     })
 
-    it('check proprieties stored', () => {
+    /*it('check proprieties stored', () => {
 
         const storedPropriety = {
             "categories": [
@@ -40,6 +40,5 @@ describe('apiUtils', () => {
             console.log(data);
             expect(data).toEqual(storedPropriety)
         })
-    })
-
+    })*/
 })
