@@ -10,19 +10,25 @@ describe('Category', () => {
         expect(category).toMatchSnapshot();
     })
 
-    describe('filter post', () => {
+    /*describe('filter post', () => {
 
         const urlReact = '/react/posts'
+
+        beforeEach(() => {
+            let category = mount(<Category />);
+        })
 
         it('filter one working', () => {
 
             console.log(category.find('.category-0'))
 
             //category.find('.category-0').simulate('click');
+            category.find('.btn-add').simulate('click');   
+
             const url = window.location.pathname;
 
             expect(url).toBe(url);
         })
 
-    })
+    })*/
 })
