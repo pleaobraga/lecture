@@ -1,0 +1,25 @@
+.horizontal-list {
+	list-style: none;
+	padding-top: 20px;
+	list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+
+	li {
+		display: inline;
+		font-size: 23px;
+
+		a {
+			text-decoration: none;
+			color: black;
+			width: 100%;
+			cursor: pointer;
+			padding: 0 20px;
+
+			&:hover {
+				background: #776f6f;
+			}
+		}
+	}
+}

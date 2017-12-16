@@ -9,6 +9,9 @@
 # production
 /build
 /src/components/__snapshots__/*
+/src/components/**/__snapshots__/*
+/src/components/**/.sass-cache
+/src/components/**/*.css.map
 
 # misc
 .DS_Store

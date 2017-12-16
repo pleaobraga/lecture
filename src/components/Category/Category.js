@@ -31,11 +31,11 @@ class Category extends Component {
             <ul className='horizontal-list'>
                 {categories.map((category, index) => {
                     return (
-                        <Link to={`/${category.name}/posts`} >
-                            <li key={index} id={`category-${index}`}>
+                        <li key={index} id={`category-${index}`}>
+                            <Link to={`/${category.name}/posts`} >
                                 {category.name}
-                            </li>
-                        </Link>   
+                            </Link>   
+                        </li>
                     )
                 })}
             </ul>
