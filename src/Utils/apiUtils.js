@@ -8,3 +8,7 @@ export const config = {
 export const getCategory = () => {
     return axios.get(`${constant.URL_BASE}/categories`, config);
 }
+
+export const getPost = () => {
+    return axios.get(`${constant.URL_BASE}/posts`, config);
+}
