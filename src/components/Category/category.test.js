@@ -1,6 +1,9 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme'
 import Category from './Category'
+import { config } from '../../Utils/apiUtils'
+import axios from 'axios'
+import MockAdapter from 'axios-mock-adapter'
 
 describe('Category', () => {
 
@@ -12,12 +15,19 @@ describe('Category', () => {
 
     /*describe('filter post', () => {
 
-        const urlReact = '/react/posts'
+        const urlReact = '/categories'
+
+        const mock = new MockAdapter(axios);
+
+        mock
+        .onGet( '/categories')
+        .reply(200, ['react', 'redux', 'other'] ,config)
 
         beforeEach(() => {
             let category = mount(<Category />);
         })
 
+    
         it('filter one working', () => {
 
             console.log(category.find('.category-0'))
