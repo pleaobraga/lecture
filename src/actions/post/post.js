@@ -2,9 +2,9 @@ import * as api from '../../Utils/apiUtils'
 import * as constant from '../../Utils/constants'
 
 
-const getAllPostsSuccess = (post) => ({
+const getAllPostsSuccess = (posts) => ({
     type: constant.GET_ALL_POSTS, 
-    post
+    posts
 })
 
 export const getAllPosts = () => dispatch => {

@@ -1,6 +1,6 @@
 import React from 'react'
 import { mount, shallow } from 'enzyme'
-import { Post } from './Post'
+import  Post  from '../Post'
 
 describe('Post', () => {
     
@@ -13,9 +13,6 @@ describe('Post', () => {
 
     describe('when mounted', () => {
 
-        const mockGettAllPosts = jest.fn();
-
-        props.getAllPosts =  mockGettAllPosts;
         props.posts = [{
             "id": "8xf0y6ziyjabvozdd253nd",
             "timestamp": 1467166872634,
@@ -30,13 +27,6 @@ describe('Post', () => {
 
         post = mount(<Post {...props} />)
 
-
-
-        it('dispatches the getAllposts() method when irt recieves from props', () => {
-            
-            expect(mockGettAllPosts).toHaveBeenCalled();
-        })
-
         describe('check proprieties', () => {
 
             it('show Post title', () => {
@@ -48,7 +38,7 @@ describe('Post', () => {
             })
 
             it('show creation post date', () => {
-                expect(post.find('.creation-date').exists()).toBe(true);
+                expect(post.find('.date').exists()).toBe(true);
             })
 
             it('show post category', () => {
@@ -60,7 +50,7 @@ describe('Post', () => {
             })
 
             it('show comments number', () => {
-                expect(post.find('.comments-number').exists().toBe(true))
+                expect(post.find('.comments').exists()).toBe(true)
             })
 
 

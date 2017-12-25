@@ -35,7 +35,7 @@ describe('actions posts', () => {
                 })
             });
         
-        const expectedAction = [{ post: post0, type: constant.GET_ALL_POSTS }]
+        const expectedAction = [{ posts: post0, type: constant.GET_ALL_POSTS }]
 
         return store.dispatch(actions.getAllPosts()).then(() => {
             expect(store.getActions()).toEqual(expectedAction)

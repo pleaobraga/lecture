@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import * as api from '../../Utils/apiUtils'
-import './category.css'
+import './style/category.css'
 
 class Category extends Component {
 
