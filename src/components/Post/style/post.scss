@@ -1,0 +1,48 @@
+.post-list {
+    display: flex;
+    flex-direction: column;
+    min-width: 200px;
+    max-width: 580px;
+    margin: auto;
+    
+
+    div {
+        display: flex;
+    }
+
+    .post-item {
+        flex-direction: row;
+        justify-content: space-around;
+        border: 2px solid #000;
+        margin-bottom: 5px;
+        padding: 10px 0;
+        cursor: pointer;
+
+        &:hover{
+           background: #e0dddd;
+        }
+
+        .main-informations {
+            flex-direction: column;
+            justify-content: space-around;
+            width: 70%;
+
+            h3 {
+                margin: 0px 0;
+            }
+
+            .author-date-informations {
+
+                h5 {
+                    margin: 0 10px 0 0;
+                }
+
+            }
+        }
+
+        .second-informations {
+            flex-direction: column;
+        }
+    }
+
+}

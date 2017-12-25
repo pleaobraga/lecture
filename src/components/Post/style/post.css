@@ -1,0 +1,29 @@
+.post-list {
+  display: flex;
+  flex-direction: column;
+  min-width: 200px;
+  max-width: 580px;
+  margin: auto; }
+  .post-list div {
+    display: flex; }
+  .post-list .post-item {
+    flex-direction: row;
+    justify-content: space-around;
+    border: 2px solid #000;
+    margin-bottom: 5px;
+    padding: 10px 0;
+    cursor: pointer; }
+    .post-list .post-item:hover {
+      background: #e0dddd; }
+    .post-list .post-item .main-informations {
+      flex-direction: column;
+      justify-content: space-around;
+      width: 70%; }
+      .post-list .post-item .main-informations h3 {
+        margin: 0px 0; }
+      .post-list .post-item .main-informations .author-date-informations h5 {
+        margin: 0 10px 0 0; }
+    .post-list .post-item .second-informations {
+      flex-direction: column; }
+
+/*# sourceMappingURL=post.css.map */
