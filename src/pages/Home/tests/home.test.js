@@ -25,7 +25,7 @@ describe('Home', () => {
 
         props.getAllPosts = mockGetAllPosts;
 
-        home = mount(<Home {...props}/>)
+        home = mount(<Home />)
 
         it('dispatche the getAllPost() method when it recieves the props', () => {
             expect(mockGetAllPosts).toHaveBeenCalled();

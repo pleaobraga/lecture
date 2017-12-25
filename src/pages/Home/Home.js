@@ -3,6 +3,7 @@ import Category from '../../components/Category/Category'
 import Post from '../../components/Post/Post'
 import { connect } from 'react-redux'
 import * as actions from '../../actions'
+import './style/home.css';
 
 
 export class Home extends Component {
@@ -10,24 +11,23 @@ export class Home extends Component {
   componentDidMount() {
     this.props.getAllPosts()
   }
-
-
+  
   render() {
 
     let posts  = this.props.posts ? this.props.posts : [] 
 
     return (
-      <div className="App">
+      <div className="home">
         <h1> Lecture </h1>
         <Category />
-        <Post />
+        <Post posts={posts} />
       </div>
     );
   }
 }
 
 const mapStateToProps = state => ({
-  post: state.post
+  posts: state.post
 })
 
 const mapDispatchToProps = dispatch => ({

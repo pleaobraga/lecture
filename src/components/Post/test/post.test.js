@@ -52,11 +52,6 @@ describe('Post', () => {
             it('show comments number', () => {
                 expect(post.find('.comments').exists()).toBe(true)
             })
-
-
-
         })
-
-        
     })
 })

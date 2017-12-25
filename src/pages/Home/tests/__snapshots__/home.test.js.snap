@@ -22,7 +22,9 @@ ShallowWrapper {
            Lecture 
 </h1>,
         <Category />,
-        <Post />,
+        <Post
+          posts={Array []}
+/>,
       ],
       "className": "App",
     },
@@ -52,7 +54,9 @@ ShallowWrapper {
         "instance": null,
         "key": undefined,
         "nodeType": "class",
-        "props": Object {},
+        "props": Object {
+          "posts": Array [],
+        },
         "ref": null,
         "rendered": null,
         "type": [Function],
@@ -71,7 +75,9 @@ ShallowWrapper {
              Lecture 
 </h1>,
           <Category />,
-          <Post />,
+          <Post
+            posts={Array []}
+/>,
         ],
         "className": "App",
       },
@@ -101,7 +107,9 @@ ShallowWrapper {
           "instance": null,
           "key": undefined,
           "nodeType": "class",
-          "props": Object {},
+          "props": Object {
+            "posts": Array [],
+          },
           "ref": null,
           "rendered": null,
           "type": [Function],
