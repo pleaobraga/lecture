@@ -1,5 +1,5 @@
 import * as constant from '../../Utils/constants'
-import * as actions from '../post'
+import * as actions from './post'
 import thunk from 'redux-thunk'
 import configureMockStore from 'redux-mock-store'
 import { config } from '../../Utils/apiUtils'
@@ -22,7 +22,6 @@ const post0 = [{
  }]
 
  const mock = new MockAdapter(axios)
-
 
 
 describe('actions posts', () => {
