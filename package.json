@@ -33,7 +33,9 @@
     "collectCoverageFrom": [
       "src/**/*.js",
       "!src/index.js",
-      "!src/tempPolyfills.js"
+      "!src/reducers/index.js",
+      "!src/tempPolyfills.js",
+      "!src/registerServiceWorker.js"
     ]
   }
 }
