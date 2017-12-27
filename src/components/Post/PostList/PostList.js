@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
-import { formateDate } from '../../Utils/utils'
-import './style/post.css'
+import { formateDate } from '../../../Utils/utils'
+import './style/post-list.css'
 
-class Post extends Component {
+class PostList extends Component {
     render() {
         if(this.props.posts) {
             return (
@@ -34,4 +34,4 @@ class Post extends Component {
     }
 }
 
-export default Post
+export default PostList

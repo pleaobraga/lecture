@@ -7,11 +7,25 @@ const getAllPostsSuccess = (posts) => ({
     posts
 })
 
+const getAllFilteredPostsSuccess = (filteredPosts, category) => ({
+    type: constant.GET_CATEGORY_POSTS,
+    filteredPosts,
+    category
+})
+
 export const getAllPosts = () => dispatch => {
     return api.getAllPost()
         .then(response => {
             dispatch(getAllPostsSuccess(response.data))
             return response.data
         });
+}
+
+export const getFilteredPosts = (category) => dispatch =>  {
+    return api.getCategoryPosts(category)
+        .then(response => {
+            dispatch(getAllFilteredPostsSuccess(response.data, category))
+            return response.data
+        })
 }
 

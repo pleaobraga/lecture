@@ -12,3 +12,7 @@ export const getCategory = () => {
 export const getAllPost = () => {
     return axios.get(`${constant.URL_BASE}/posts`, config);
 }
+
+export const getCategoryPosts = (category) => {
+    return axios.get(`${constant.URL_BASE}/${category}/posts`, config);
+}

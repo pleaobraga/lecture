@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme'
-import Category from '../Category'
+import  { Category } from '../Category'
 import { config } from '../../../Utils/apiUtils'
 import axios from 'axios'
 import MockAdapter from 'axios-mock-adapter'

@@ -1,22 +1,22 @@
 import React from 'react'
 import { mount, shallow } from 'enzyme'
-import { Home } from '../Home'
+import { CategoryFiltered } from '../CategoryFiltered'
 
-describe('Home', () => {
+describe('CategoryFiltered', () => {
     
-    let home = shallow(<Home />);
+    let categoryFiltered = shallow(<CategoryFiltered />);
     let props = {};
     
     it('render propriely', () => {
-        expect(home).toMatchSnapshot();
+        expect(categoryFiltered).toMatchSnapshot();
     })
 
     it('contains a connected Category Component', () => {
-        expect(home.find('Connect(Category)').exists()).toBe(true);
+        expect(categoryFiltered.find('Connect(Category)').exists()).toBe(true);
     })
 
     it('contains a Post Component', () => {
-        expect(home.find('PostList').exists()).toBe(true);
+        expect(categoryFiltered.find('PostList').exists()).toBe(true);
     })
 
     /*describe('when mounted', () => {

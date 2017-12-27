@@ -3,13 +3,13 @@ import * as constant from '../../Utils/constants'
 
 describe('postReducer', () => {
 
-    let posts = [{ id: 1, deleted: false }, {id: 2, deleted: false }];
+    let posts = [{ id: 1, deleted: false, category: 'react' }, {id: 2, deleted: false, category: 'redux' }];
 
     it('fetches and sets all post', () => {
 
         const postAction = {type: constant.GET_ALL_POSTS, posts}
 
-        expect(postReducer({}, postAction)).toEqual(posts);
+        expect(postReducer({}, postAction)).toEqual({posts});
     })
 
     it('set only non deleted posts', () => {
@@ -18,6 +18,13 @@ describe('postReducer', () => {
 
         const postAction = {type: constant.GET_ALL_POSTS, posts: []}
 
-        expect(postReducer({}, postAction)).toEqual([]);
+        expect(postReducer({}, postAction)).toEqual({posts:[]});
+    })
+
+    it('filter category', () => {
+        
+        const postAction = {type: constant.GET_CATEGORY_POSTS, category: 'react', filteredPosts: posts[0] }
+        
+        expect(postReducer({}, postAction)).toEqual({filteredPosts: posts[0]})
     })
 })

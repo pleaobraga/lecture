@@ -1,10 +1,10 @@
 import React from 'react'
 import { mount, shallow } from 'enzyme'
-import  Post  from '../Post'
+import  PostList  from '../PostList'
 
 describe('Post', () => {
     
-    let post = shallow(<Post />) 
+    let post = shallow(<PostList />) 
     let props = {};
 
     it('render proprely', () => {
@@ -25,7 +25,7 @@ describe('Post', () => {
             "commentCount": 2
             }]
 
-        post = mount(<Post {...props} />)
+        post = mount(<PostList {...props} />)
 
         describe('check proprieties', () => {
 

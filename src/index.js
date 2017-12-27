@@ -1,12 +1,13 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import Home from '../src/pages/Home/Home'
 import registerServiceWorker from './registerServiceWorker'
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import  { Provider } from 'react-redux' 
 import thunk from 'redux-thunk'
 import { createStore, applyMiddleware, compose } from 'redux'
 import rootReducers from './reducers'
+import Home from '../src/pages/Home/Home'
+import CategoryFiltered from '../src/pages/CategoryFiltered/CategoryFiltered'
 
 const store = createStore(
     rootReducers,
@@ -16,12 +17,12 @@ const store = createStore(
     )
 )
 
-
 ReactDOM.render(
     <Provider store={store} >
         <BrowserRouter>
             <div>
                 <Switch>
+                    <Route path="/:category/posts" component={CategoryFiltered} />
                     <Route path="/" component={Home} />
                 </Switch>
             </div>
