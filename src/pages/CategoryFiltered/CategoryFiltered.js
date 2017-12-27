@@ -10,15 +10,10 @@ export class CategoryFiltered extends Component {
 
   componentDidMount() {
     const { category } = this.props.match
-    this.filteredPostsByCategory(category);
-  }
-
-  filteredPostsByCategory (category) {
     this.props.getCategoryPosts(category)
   }
   
   render() {
-
     let { filteredPosts } = this.props
 
     return (
