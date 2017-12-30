@@ -8,7 +8,6 @@ import './style/home.css';
 
 export class Home extends Component {
 
-
   componentDidMount() {
     this.props.getAllPosts()
   }
