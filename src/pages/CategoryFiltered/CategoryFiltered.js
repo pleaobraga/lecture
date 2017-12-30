@@ -18,7 +18,6 @@ export class CategoryFiltered extends Component {
   }
   
   render() {
-
     let { filteredPosts } = this.props
 
     return (
