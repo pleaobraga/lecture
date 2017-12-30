@@ -16,7 +16,7 @@ describe('CategoryFiltered', () => {
     })
 
     it('contains a Post Component', () => {
-        expect(categoryFiltered.find('PostList').exists()).toBe(true);
+        expect(categoryFiltered.find('withRouter(PostList)').exists()).toBe(true);
     })
 
     /*describe('when mounted', () => {

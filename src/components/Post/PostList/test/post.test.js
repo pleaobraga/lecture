@@ -1,6 +1,6 @@
 import React from 'react'
 import { mount, shallow } from 'enzyme'
-import  PostList  from '../PostList'
+import  { PostList }  from '../PostList'
 
 describe('Post', () => {
     
@@ -24,6 +24,8 @@ describe('Post', () => {
             "deleted": false,
             "commentCount": 2
             }]
+            
+        props.history = ['/']
 
         post = mount(<PostList {...props} />)
 
@@ -53,5 +55,14 @@ describe('Post', () => {
                 expect(post.find('.comments').exists()).toBe(true)
             })
         })
+
+        // describe('show post details', () => {
+        //     post.find('.post-item').simulate('click');
+
+        //     const url = window.location.pathname;
+        //     const expectedURL = '/posts/8xf0y6ziyjabvozdd253nd'
+            
+        //     expect(url).toBe(expectedURL);
+        // })
     })
 })

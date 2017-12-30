@@ -9,7 +9,7 @@ import './style/categoryFiltered.css';
 export class CategoryFiltered extends Component {
 
   componentDidMount() {
-    const { category } = this.props.match
+    const { category } = this.props.match.params;
     this.filteredPostsByCategory(category);
   }
 

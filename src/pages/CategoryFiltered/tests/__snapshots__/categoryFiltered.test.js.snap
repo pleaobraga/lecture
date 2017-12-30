@@ -22,7 +22,7 @@ ShallowWrapper {
            Lecture 
 </h1>,
         <Connect(Category) />,
-        <PostList
+        <withRouter(PostList)
           posts={undefined}
 />,
       ],
@@ -75,7 +75,7 @@ ShallowWrapper {
              Lecture 
 </h1>,
           <Connect(Category) />,
-          <PostList
+          <withRouter(PostList)
             posts={undefined}
 />,
         ],

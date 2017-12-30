@@ -1,14 +1,22 @@
-import React from 'react'
+import React  from 'react'
 import { formateDate } from '../../../Utils/utils'
+import { withRouter } from 'react-router-dom'
 import './style/post-list.css'
 
-function PostList (props) {
+
+export function PostList(props) {
+
+    function showPostDetail (id) {
+        props.history.push(`/posts/${id}`);
+    }
 
     function renderPostItem(posts = []) {
         return posts.map( post => {
             return(
-                <div key= {post.id} className='post-item' >
-                    <div className='main-informations' >
+                <div key= {post.id} className='post-item' 
+                     onClick={() => showPostDetail(post.id)} 
+                    >
+                    <div className='main-informations' >  
                         <h3 className='title' >{post.title}</h3>
                         <div className='author-date-informations' >
                             <h5 className='author'>{post.author}  </h5>
@@ -26,10 +34,10 @@ function PostList (props) {
     }
 
     return (
-        <div className='post-list'>
+        <div className='post-list' >
             {renderPostItem(props.posts)}
         </div>
-    );
+    )
 }
 
-export default PostList
+export default withRouter(PostList)

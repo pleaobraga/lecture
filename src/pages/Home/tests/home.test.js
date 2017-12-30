@@ -15,8 +15,8 @@ describe('Home', () => {
         expect(home.find('Connect(Category)').exists()).toBe(true);
     })
 
-    it('contains a Post Component', () => {
-        expect(home.find('PostList').exists()).toBe(true);
+    it('contains a PostList Component', () => {
+        expect(home.find('withRouter(PostList)').exists()).toBe(true);
     })
 
     /*describe('when mounted', () => {
