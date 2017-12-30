@@ -1,5 +1,5 @@
-import postReducer from './post'
-import * as constant from '../../Utils/constants'
+import postReducer from '../post'
+import * as constant from '../../../Utils/constants'
 
 describe('postReducer', () => {
 
@@ -26,5 +26,12 @@ describe('postReducer', () => {
         const postAction = {type: constant.GET_CATEGORY_POSTS, category: 'react', filteredPosts: posts[0] }
         
         expect(postReducer({}, postAction)).toEqual({filteredPosts: posts[0]})
+    })
+
+    it('fetch and set detail post', () => {
+        
+        const postAction = {type:constant.GET_POST_DETAIL, post: posts[0] } 
+
+        expect(postReducer({}, postAction)).toEqual({postDetail: posts[0]})
     })
 })

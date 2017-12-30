@@ -8,6 +8,8 @@ const posts = function(state = {}, action) {
             return {...state, posts: activatedPosts};
         case constant.GET_CATEGORY_POSTS:
             return {...state, filteredPosts: action.filteredPosts}
+        case constant.GET_POST_DETAIL:
+            return {...state, postDetail: action.post}
         default: 
             return state
     }

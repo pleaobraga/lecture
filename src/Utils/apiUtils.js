@@ -16,3 +16,7 @@ export const getAllPost = () => {
 export const getCategoryPosts = (category) => {
     return axios.get(`${constant.URL_BASE}/${category}/posts`, config);
 }
+
+export const getPostDetail = (idPost) => {
+    return axios.get(`${constant.URL_BASE}/posts/${idPost}`, config);
+}

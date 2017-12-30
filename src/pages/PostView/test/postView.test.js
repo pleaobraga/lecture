@@ -1,6 +1,6 @@
 import React from 'react'
 import { shallow } from 'enzyme'
-import PostView from '../PostView'
+import { PostView } from '../PostView'
 
 describe('PostView', () => {
     
@@ -8,7 +8,7 @@ describe('PostView', () => {
 
 
     it('render Proprely', () => {
-        expect(postView),toMatchSnapshot()
+        expect(postView).toMatchSnapshot()
     })
 
     it('contains a connected Post Detail coponent', () => {

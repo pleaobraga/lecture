@@ -1,8 +1,8 @@
-import * as constant from '../../Utils/constants'
-import * as actions from './post'
+import * as constant from '../../../Utils/constants'
+import * as actions from '../post'
 import thunk from 'redux-thunk'
 import configureMockStore from 'redux-mock-store'
-import { config } from '../../Utils/apiUtils'
+import { config } from '../../../Utils/apiUtils'
 import axios from 'axios'
 import  MockAdapter  from 'axios-mock-adapter'
 
@@ -64,6 +64,26 @@ describe('actions posts', () => {
             return store.dispatch(actions.getFilteredPosts(category)).then(() => {
                 expect(store.getActions()).toEqual(expectedAction)
             })
+
+    })
+
+    it('get Detail from a post', () =>{
+
+        mock
+            .onGet(`${constant.URL_BASE}/posts/${post0.id}`)
+            .reply(() => {
+                return new Promise(function(resolve, reject) {
+                    resolve([200, post0, config])
+                })
+            })
+
+        let expectedAction = [{ post: post0, type: constant.GET_POST_DETAIL  }]
+
+        return store.dispatch(actions.getPostDetail(post0.id)).then(() => {
+            expect(store.getActions()).toEqual(expectedAction)
+        })
+
+
 
     })
 
