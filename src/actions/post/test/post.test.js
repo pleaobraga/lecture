@@ -4,7 +4,7 @@ import thunk from 'redux-thunk'
 import configureMockStore from 'redux-mock-store'
 import { config } from '../../../Utils/apiUtils'
 import axios from 'axios'
-import  MockAdapter  from 'axios-mock-adapter'
+import MockAdapter  from 'axios-mock-adapter'
 
 const createMockStore = configureMockStore([thunk])
 let store = createMockStore({ post: [], filteredPosts: [] })

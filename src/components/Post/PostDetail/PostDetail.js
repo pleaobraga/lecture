@@ -2,7 +2,7 @@ import React from 'react'
 import { formateDate } from '../../../Utils/utils'
 
 
-export function PostDetail(props) {
+function PostDetail(props) {
 
     if(props.post) {
 

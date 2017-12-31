@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import PostDetail from '../../components/Post/PostDetail/PostDetail'
+import CommentsList from '../../components/CommentsList/CommentsList'
 import { connect } from 'react-redux'
 import * as actions from '../../actions/index'
 
@@ -15,7 +16,11 @@ export class PostView extends Component {
         const { post } = this.props
 
         return (
-            <PostDetail post={post} />
+            <div>
+                <PostDetail post={post} />
+                <CommentsList />
+            </div>
+
         );
     }
 } 

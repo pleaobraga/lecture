@@ -16,7 +16,7 @@ describe('postReducer', () => {
 
         posts = [{ id: 1, deleted: true }, {id: 2, deleted: true }];
 
-        const postAction = {type: constant.GET_ALL_POSTS, posts: []}
+        const postAction = {type: constant.GET_ALL_POSTS, posts: posts}
 
         expect(postReducer({}, postAction)).toEqual({posts:[]});
     })

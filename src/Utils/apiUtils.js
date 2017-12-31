@@ -20,3 +20,7 @@ export const getCategoryPosts = (category) => {
 export const getPostDetail = (idPost) => {
     return axios.get(`${constant.URL_BASE}/posts/${idPost}`, config);
 }
+
+export const getPostComments = (idPost) => {
+    return axios.get(`${constant.URL_BASE}/posts/${idPost}/comments`);
+}

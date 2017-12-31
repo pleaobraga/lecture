@@ -11,7 +11,11 @@ describe('PostView', () => {
         expect(postView).toMatchSnapshot()
     })
 
-    it('contains a connected Post Detail coponent', () => {
-        expect(postView.find('PostDetail').exists()).toBe(true);
+    it('contains a connected Post Detail component', () => {
+        expect(postView.find('PostDetail').exists()).toBe(true)
+    })
+
+    it('contains a commentsList component', () => {
+        expect(postView.find('CommentsList').exists()).toBe(true)
     })
 })
