@@ -3,6 +3,7 @@ import PostDetail from '../../components/Post/PostDetail/PostDetail'
 import CommentsList from '../../components/CommentsList/CommentsList'
 import { connect } from 'react-redux'
 import * as actions from '../../actions/index'
+import { Link } from 'react-router-dom'
 
 
 export class PostView extends Component {
@@ -10,15 +11,17 @@ export class PostView extends Component {
     componentDidMount() {
         const { idPost } = this.props.match.params
         this.props.getPostDetail(idPost)
+        this.props.getPostComments(idPost)
     }
 
     render() {
-        const { post } = this.props
+        const { post, comments } = this.props
 
         return (
             <div>
+                <Link to={`/`} className='backHome'>Back</Link>
                 <PostDetail post={post} />
-                <CommentsList />
+                <CommentsList comments={comments} />
             </div>
 
         );
@@ -27,11 +30,13 @@ export class PostView extends Component {
 
 
 const mapStateToProps = state => ({
-    post: state.post.postDetail
+    post: state.post.postDetail,
+    comments: state.comments.comments
 })
 
 const mapDispatchToProps = dispatch => ({
-    getPostDetail: (idPost) => dispatch(actions.post.getPostDetail(idPost))
+    getPostDetail: (idPost) => dispatch(actions.post.getPostDetail(idPost)),
+    getPostComments: (idPost) => dispatch(actions.comments.getPostComments(idPost))
 })
 
 

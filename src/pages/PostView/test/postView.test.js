@@ -18,4 +18,8 @@ describe('PostView', () => {
     it('contains a commentsList component', () => {
         expect(postView.find('CommentsList').exists()).toBe(true)
     })
+
+    it('contains a back button', () => {
+        expect(postView.find('.backHome').exists()).toBe(true)
+    })
 })

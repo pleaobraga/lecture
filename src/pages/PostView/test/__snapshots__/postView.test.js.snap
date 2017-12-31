@@ -18,14 +18,37 @@ ShallowWrapper {
     "nodeType": "host",
     "props": Object {
       "children": Array [
+        <Link
+          className="backHome"
+          replace={false}
+          to="/"
+>
+          Back
+</Link>,
         <PostDetail
           post={undefined}
 />,
-        <CommentsList />,
+        <CommentsList
+          comments={undefined}
+/>,
       ],
     },
     "ref": null,
     "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "children": "Back",
+          "className": "backHome",
+          "replace": false,
+          "to": "/",
+        },
+        "ref": null,
+        "rendered": "Back",
+        "type": [Function],
+      },
       Object {
         "instance": null,
         "key": undefined,
@@ -41,7 +64,9 @@ ShallowWrapper {
         "instance": null,
         "key": undefined,
         "nodeType": "function",
-        "props": Object {},
+        "props": Object {
+          "comments": undefined,
+        },
         "ref": null,
         "rendered": null,
         "type": [Function],
@@ -56,14 +81,37 @@ ShallowWrapper {
       "nodeType": "host",
       "props": Object {
         "children": Array [
+          <Link
+            className="backHome"
+            replace={false}
+            to="/"
+>
+            Back
+</Link>,
           <PostDetail
             post={undefined}
 />,
-          <CommentsList />,
+          <CommentsList
+            comments={undefined}
+/>,
         ],
       },
       "ref": null,
       "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "children": "Back",
+            "className": "backHome",
+            "replace": false,
+            "to": "/",
+          },
+          "ref": null,
+          "rendered": "Back",
+          "type": [Function],
+        },
         Object {
           "instance": null,
           "key": undefined,
@@ -79,7 +127,9 @@ ShallowWrapper {
           "instance": null,
           "key": undefined,
           "nodeType": "function",
-          "props": Object {},
+          "props": Object {
+            "comments": undefined,
+          },
           "ref": null,
           "rendered": null,
           "type": [Function],

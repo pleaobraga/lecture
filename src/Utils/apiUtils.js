@@ -22,5 +22,9 @@ export const getPostDetail = (idPost) => {
 }
 
 export const getPostComments = (idPost) => {
-    return axios.get(`${constant.URL_BASE}/posts/${idPost}/comments`);
+    return axios.get(`${constant.URL_BASE}/posts/${idPost}/comments`, config);
+}
+
+export const createNewPost = (post) => {
+    return axios.post(`${constant.URL_BASE}/posts/`, post, config)
 }
