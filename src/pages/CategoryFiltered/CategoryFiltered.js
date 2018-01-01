@@ -23,7 +23,7 @@ export class CategoryFiltered extends Component {
     return (
       <div className="home">
         <h1> Lecture </h1>
-        <Category />
+        <Category removeFilter={true} />
         <PostList posts={filteredPosts} />
       </div>
     );

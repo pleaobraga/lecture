@@ -3,12 +3,23 @@
   flex-direction: column;
   margin: auto;
   width: 100%; }
+  .post-view > * {
+    margin: 10px auto; }
   .post-view .back-home {
     border: 2px solid #000;
     text-decoration: none;
-    width: 85px;
+    width: 210px;
     margin: auto;
     padding: 8px 0px;
-    text-align: center; }
+    text-align: center;
+    border-radius: 7px;
+    color: black;
+    text-transform: uppercase;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly; }
+    .post-view .back-home:hover {
+      background: #dcdada; }
 
 /*# sourceMappingURL=post-view.css.map */

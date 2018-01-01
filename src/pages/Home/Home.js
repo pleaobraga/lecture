@@ -18,6 +18,7 @@ export class Home extends Component {
 
     return (
       <div className="home">
+        
         <h1> Lecture </h1>
         <Category />
         <PostList posts={posts} />

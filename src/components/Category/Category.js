@@ -10,8 +10,7 @@ export class Category extends Component {
 
     constructor() {
         super()
-
-        this.state = { categories: [] }
+        this.state = { categories: []}
     }
 
     componentDidMount() {
@@ -34,7 +33,7 @@ export class Category extends Component {
         return categories.map((category, index) => {
             return (
                 <li key={index} id={`category-${index}`} onClick={() => this.filteredPostsByCategory(category.name)} >
-                    <Link to={`/${category.name}/posts`} >
+                    <Link to={`/${category.name}/posts`} className={`${category.name}-category`} >
                         {category.name}
                     </Link>   
                 </li>
@@ -42,13 +41,25 @@ export class Category extends Component {
         })
     }
 
+    renderRemoveFilterButton() {
+        return (
+            <li>
+                <Link to="/" className={`remove-filter-category`} >
+                    Remove Filter
+                </Link>
+            </li> 
+        )
+    }
+
     render() {
 
         const { categories } = this.state;
+        let { removeFilter } = this.props
 
         return (
             <ul className='horizontal-list'>
                 {this.rendeCategory(categories)}
+                {removeFilter && this.renderRemoveFilterButton()}
             </ul>
         )
     }

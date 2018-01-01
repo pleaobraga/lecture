@@ -18,6 +18,7 @@
         margin-bottom: 10px;
         padding: 10px 0;
         cursor: pointer;
+        border-radius: 10px;
 
         &:hover{
            background: #e0dddd;
@@ -43,6 +44,35 @@
 
         .second-informations {
             flex-direction: column;
+
+            .category{
+                margin: 2px 0px;
+                padding: 6px 0 4px 0;
+                width: 70px;
+                border-radius: 4px;
+                text-transform: uppercase;
+                font-size: 12px;
+                font-weight: 700;
+                color: white;
+
+                &.react-category {
+                    background: #61dafb;
+                }
+
+                &.redux-category {
+                    background: #785ebc;
+                }
+
+                &.udacity-category {
+                    background: #03b3e4;
+                }
+            }
+
+            .score, 
+            .category,
+            .comments {
+                text-align: center;
+            } 
         }
     }
 

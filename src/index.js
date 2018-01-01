@@ -12,6 +12,8 @@ import PostView from '../src/pages/PostView/PostView'
 import CreatePost from '../src/pages/CreatePost/CreatePost'
 import 'normalize.css'
 import './index.css'
+import 'font-awesome/css/font-awesome.min.css';
+
 
 const store = createStore(
     rootReducers,

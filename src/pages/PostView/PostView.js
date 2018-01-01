@@ -19,7 +19,7 @@ export class PostView extends Component {
 
         return (
             <div className="post-view" >
-                <Link to={`/`} className='back-home'>Back</Link>
+                <Link to={`/`} className='back-home'><i class="fa fa-chevron-left" aria-hidden="true"></i> Back to post list</Link>
                 <PostDetail post={post} />
                 <CommentsList comments={comments} />
             </div>

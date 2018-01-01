@@ -19,14 +19,14 @@ export function PostList(props) {
                     <div className='main-informations' >  
                         <h3 className='title' >{post.title}</h3>
                         <div className='author-date-informations' >
-                            <h5 className='author'>{post.author}  </h5>
-                            <h5 className='date' > {formateDate(post.timestamp)} </h5>
+                            <h5 className='author'><i className="fa fa-user" aria-hidden="true"></i> {post.author}  </h5>
+                            <h5 className='date' ><i className="fa fa-calendar" aria-hidden="true"></i> {formateDate(post.timestamp)} </h5>
                         </div>
                     </div>
                     <div className='second-informations' >
-                        <span className='score' >{post.voteScore}</span>
-                        <span className='category'>{post.category}</span>
-                        <span className='comments'>{post.commentCount}</span>
+                        <span className='score' ><i className="fa fa-star" aria-hidden="true" style={{color: '#eabc14'}} ></i> {post.voteScore}</span>
+                        <span className={`category ${post.category}-category`}>{post.category}</span>
+                        <span className='comments'><i className="fa fa-comments" aria-hidden="true" style={{color: '#1d1dc1'}} ></i> {post.commentCount} </span>
                     </div>
                 </div>
             )

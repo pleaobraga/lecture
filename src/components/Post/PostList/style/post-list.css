@@ -13,7 +13,8 @@
     border: 2px solid #000;
     margin-bottom: 10px;
     padding: 10px 0;
-    cursor: pointer; }
+    cursor: pointer;
+    border-radius: 10px; }
     .post-list .post-item:hover {
       background: #e0dddd; }
     .post-list .post-item .main-informations {
@@ -26,5 +27,24 @@
         margin: 0 10px 0 0; }
     .post-list .post-item .second-informations {
       flex-direction: column; }
+      .post-list .post-item .second-informations .category {
+        margin: 2px 0px;
+        padding: 6px 0 4px 0;
+        width: 70px;
+        border-radius: 4px;
+        text-transform: uppercase;
+        font-size: 12px;
+        font-weight: 700;
+        color: white; }
+        .post-list .post-item .second-informations .category.react-category {
+          background: #61dafb; }
+        .post-list .post-item .second-informations .category.redux-category {
+          background: #785ebc; }
+        .post-list .post-item .second-informations .category.udacity-category {
+          background: #03b3e4; }
+      .post-list .post-item .second-informations .score,
+      .post-list .post-item .second-informations .category,
+      .post-list .post-item .second-informations .comments {
+        text-align: center; }
 
 /*# sourceMappingURL=post-list.css.map */
