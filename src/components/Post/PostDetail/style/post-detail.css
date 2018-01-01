@@ -5,7 +5,9 @@
   min-width: 200px;
   width: 100%;
   border: 2px solid #000;
-  margin: auto; }
+  padding: 10px 25px;
+  margin: auto;
+  box-sizing: border-box; }
   .post-detail .header-post {
     display: flex;
     justify-content: space-around; }
