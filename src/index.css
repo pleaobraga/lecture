@@ -1,0 +1,7 @@
+@import '../node_modules/normalize.css/normalize.css';
+
+.lecture  {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+}

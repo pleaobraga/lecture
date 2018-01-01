@@ -10,4 +10,8 @@ describe('CreatePost', () => {
         expect(createPost).toMatchSnapshot()
     })
 
+    it('has Post Form Oponent', () => {
+        expect(createPost.find('PostForm').exists()).toBe(true)
+    })
+
 })

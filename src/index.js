@@ -10,6 +10,8 @@ import Home from '../src/pages/Home/Home'
 import CategoryFiltered from '../src/pages/CategoryFiltered/CategoryFiltered'
 import PostView from '../src/pages/PostView/PostView'
 import CreatePost from '../src/pages/CreatePost/CreatePost'
+import 'normalize.css'
+import './index.css'
 
 const store = createStore(
     rootReducers,
@@ -22,7 +24,7 @@ const store = createStore(
 ReactDOM.render(
     <Provider store={store} >
         <BrowserRouter >
-            <div>
+            <div className="lecture" >
                 <Switch>
                     <Route path="/create-post" component={CreatePost} />
                     <Route path="/posts/:idPost" component={PostView} />

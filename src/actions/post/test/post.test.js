@@ -83,8 +83,46 @@ describe('actions posts', () => {
             expect(store.getActions()).toEqual(expectedAction)
         })
 
-
-
     })
 
+    /*it('createsa new post', () => {
+
+        let dateTime = new Date().getTime() 
+
+        const newPostdata = {
+            "id": "Teste Pedro",
+            "timestamp": dateTime,
+            "title": "Teste Pedro",
+            "body": "is it work?",
+            "author": "pleao",
+            "category": "react",
+        }
+
+        const newPostFetched = {
+            "id": "Teste Pedro",
+            "timestamp": dateTime,
+            "title": "Teste Pedro",
+            "body": "is it work?",
+            "author": "pleao",
+            "category": "react",
+            "voteScore": 1,
+            "deleted": false,
+            "commentCount": 0
+         }
+
+         mock
+            .onPost(`${constant.URL_BASE}/posts`, newPostdata)
+            .reply(() => {
+                return new Promise(function(resolve, reject) {
+                    resolve([200, post0, config])
+                })
+            })
+        
+        
+        let expectedAction = [{ newPost: newPostFetched, type: constant.CREATE_NEW_POST}]
+        
+        return store.dispatch(actions.createNewPost(newPostdata)).then(() =>{
+            expect(store.getActions()).toEqual(expectedAction)
+        })
+    })*/
 }) 

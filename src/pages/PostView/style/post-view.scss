@@ -1,0 +1,15 @@
+.post-view {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    width: 100%;
+
+    .back-home {
+        border: 2px solid #000;
+        text-decoration: none;
+        width: 85px;
+        margin: auto;
+        padding: 8px 0px;
+        text-align: center;
+    }
+}

@@ -1,0 +1,15 @@
+.post-detail {
+  display: flex;
+  flex-direction: column;
+  max-width: 400px;
+  min-width: 200px;
+  width: 100%;
+  border: 2px solid #000;
+  margin: auto; }
+  .post-detail .header-post {
+    display: flex;
+    justify-content: space-around; }
+    .post-detail .header-post h3 {
+      margin: 3px 0; }
+
+/*# sourceMappingURL=post-detail.css.map */

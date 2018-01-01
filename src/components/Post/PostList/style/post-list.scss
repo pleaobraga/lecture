@@ -4,6 +4,7 @@
     min-width: 200px;
     max-width: 580px;
     margin: auto;
+    width: 100%;
     
 
     div {
@@ -14,7 +15,7 @@
         flex-direction: row;
         justify-content: space-around;
         border: 2px solid #000;
-        margin-bottom: 5px;
+        margin-bottom: 10px;
         padding: 10px 0;
         cursor: pointer;
 

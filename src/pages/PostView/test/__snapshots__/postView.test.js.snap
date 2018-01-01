@@ -19,7 +19,7 @@ ShallowWrapper {
     "props": Object {
       "children": Array [
         <Link
-          className="backHome"
+          className="back-home"
           replace={false}
           to="/"
 >
@@ -32,6 +32,7 @@ ShallowWrapper {
           comments={undefined}
 />,
       ],
+      "className": "post-view",
     },
     "ref": null,
     "rendered": Array [
@@ -41,7 +42,7 @@ ShallowWrapper {
         "nodeType": "class",
         "props": Object {
           "children": "Back",
-          "className": "backHome",
+          "className": "back-home",
           "replace": false,
           "to": "/",
         },
@@ -82,7 +83,7 @@ ShallowWrapper {
       "props": Object {
         "children": Array [
           <Link
-            className="backHome"
+            className="back-home"
             replace={false}
             to="/"
 >
@@ -95,6 +96,7 @@ ShallowWrapper {
             comments={undefined}
 />,
         ],
+        "className": "post-view",
       },
       "ref": null,
       "rendered": Array [
@@ -104,7 +106,7 @@ ShallowWrapper {
           "nodeType": "class",
           "props": Object {
             "children": "Back",
-            "className": "backHome",
+            "className": "back-home",
             "replace": false,
             "to": "/",
           },
