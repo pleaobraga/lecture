@@ -1,5 +1,6 @@
 import React from 'react'
 import { formateDate } from '../../Utils/utils'
+import './style/comment-list.css'
 
  function CommentsList(props) {
 
@@ -14,7 +15,7 @@ import { formateDate } from '../../Utils/utils'
                 voteScore} = comment
             
             return(
-                <div key={id} >
+                <div key={id} className="comment-item"  >
                     <p className='body'>{body}</p>
                     <footer>
                         <div className="post-data" >
