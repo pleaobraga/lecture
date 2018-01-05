@@ -22,14 +22,18 @@
     .comments-list .comment-item footer {
       display: flex;
       align-items: center;
-      justify-content: space-between; }
+      justify-content: space-between;
+      flex-wrap: wrap;
+      margin-top: -10px; }
       .comments-list .comment-item footer .post-data {
-        display: flex; }
+        display: flex;
+        margin-top: 10px; }
         .comments-list .comment-item footer .post-data h5 {
           margin: 0 10px 0 0; }
       .comments-list .comment-item footer .right-area {
         display: flex;
-        align-items: center; }
+        align-items: center;
+        margin-top: 10px; }
         .comments-list .comment-item footer .right-area .score-area {
           margin-right: 20px; }
           .comments-list .comment-item footer .right-area .score-area span {

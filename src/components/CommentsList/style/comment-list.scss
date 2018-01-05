@@ -27,10 +27,13 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
+            flex-wrap: wrap;
+            margin-top: -10px;
 
             .post-data {
                 display: flex; 
-                
+                margin-top: 10px;
+
                 h5 {
                     margin: 0 10px 0 0;
                 }
@@ -39,6 +42,7 @@
             .right-area {
                 display: flex;
                 align-items: center;
+                margin-top: 10px;
 
                 .score-area {
                     margin-right: 20px;

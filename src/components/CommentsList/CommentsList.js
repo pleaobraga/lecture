@@ -29,7 +29,7 @@ import './style/comment-list.css'
                                 <i className="fa fa-thumbs-o-up" aria-hidden="true"></i>
                                 <i className="fa fa-thumbs-o-down" aria-hidden="true"></i>
                             </div>
-                            <button><i className="fa fa-pencil" aria-hidden="true"></i>Edit Post</button>
+                            <button><i className="fa fa-pencil" aria-hidden="true"></i>Edit Comment</button>
                         </div>
                     </footer>
                 </div>
