@@ -19,18 +19,19 @@ import './style/comment-list.css'
                     <p className='body'>{body}</p>
                     <footer>
                         <div className="post-data" >
-                            <div className='author'>{author}</div>
-                            <div className='date'>{formateDate(timestamp)}</div>
+                            <h5 className='author'><i className="fa fa-user" aria-hidden="true"></i> {author}  </h5>
+                            <h5 className='date' ><i className="fa fa-calendar" aria-hidden="true"></i> {formateDate(timestamp)} </h5>
                         </div>
-                        <div className='score-area'>
-                            <i class="fa fa-thumbs-o-up" aria-hidden="true"></i>
-                            <i class="fa fa-thumbs-o-down" aria-hidden="true"></i>
-                            <i className="fa fa-star" aria-hidden="true" ></i>
-                            <span className="score" >{voteScore}</span>
+                        <div className="right-area" >
+                            <div className='score-area'>
+                                <i className="fa fa-star" aria-hidden="true" ></i>
+                                <span className="score" >{voteScore}</span>
+                                <i className="fa fa-thumbs-o-up" aria-hidden="true"></i>
+                                <i className="fa fa-thumbs-o-down" aria-hidden="true"></i>
+                            </div>
+                            <button><i className="fa fa-pencil" aria-hidden="true"></i>Edit Post</button>
                         </div>
-                        <button><i className="fa fa-pencil" aria-hidden="true"></i>Edit Post</button>
                     </footer>
-                   
                 </div>
             )
         })
@@ -38,6 +39,7 @@ import './style/comment-list.css'
 
     return (
         <div className='comments-list' >
+            <h3>Comments</h3>
             {renderCommentsItems(props.comments)}
         </div>
     )}

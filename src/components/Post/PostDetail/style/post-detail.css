@@ -1,71 +1,78 @@
 .post-detail {
-  display: flex;
-  flex-direction: column;
   max-width: 600px;
   min-width: 200px;
-  width: 100%;
-  border: 2px solid #000;
-  padding: 10px 25px;
-  margin: auto;
-  box-sizing: border-box;
-  border-radius: 10px; }
-  .post-detail .header-post {
+  width: 100%; }
+  .post-detail h3.title {
+    margin: 5px 0;
+    color: #000;
+    font-size: 22px; }
+  .post-detail .post-content {
     display: flex;
-    justify-content: space-around;
-    align-items: center; }
-    .post-detail .header-post h3 {
-      margin: 3px 0;
-      text-align: center; }
-  .post-detail .body {
-    font-size: 19px; }
-  .post-detail .category {
-    padding: 6px 8px 4px 8px;
-    width: 70px;
-    border-radius: 4px;
-    text-transform: uppercase;
-    font-size: 16px;
-    font-weight: 700;
-    color: white;
-    text-align: center; }
-    .post-detail .category.react-category {
-      background: #61dafb; }
-    .post-detail .category.redux-category {
-      background: #785ebc; }
-    .post-detail .category.udacity-category {
-      background: #03b3e4; }
-  .post-detail footer {
-    display: flex;
-    justify-content: space-between; }
-    .post-detail footer .score-area {
-      margin-top: 15px; }
-      .post-detail footer .score-area i {
-        margin-right: 4px;
-        font-size: 25px; }
-        .post-detail footer .score-area i.fa-star {
-          color: #eabc14;
-          margin-right: 2px;
-          font-size: 20px;
-          margin-left: 12px; }
-        .post-detail footer .score-area i.fa-thumbs-o-up, .post-detail footer .score-area i.fa-thumbs-o-down {
-          cursor: pointer; }
-        .post-detail footer .score-area i.fa-thumbs-o-up {
-          margin-right: 10px; }
-      .post-detail footer .score-area .score {
-        margin-right: 10px;
-        font-size: 19px; }
-    .post-detail footer button {
-      background: #f1fffc;
-      border: 2px solid #8fcabf;
-      border-radius: 6px;
-      text-transform: uppercase;
-      font-weight: 700;
-      cursor: pointer;
-      width: 133px;
+    flex-direction: column;
+    width: 100%;
+    border: 2px solid #000;
+    padding: 10px 25px;
+    margin: auto;
+    box-sizing: border-box;
+    border-radius: 10px; }
+    .post-detail .post-content .header-post {
       display: flex;
-      justify-content: space-around; }
-      .post-detail footer button:hover {
-        background: #a4c5d2; }
-      .post-detail footer button:focus {
-        outline: none; }
+      justify-content: space-around;
+      align-items: center; }
+      .post-detail .post-content .header-post h3 {
+        margin: 3px 0;
+        text-align: center; }
+    .post-detail .post-content .body {
+      font-size: 19px; }
+    .post-detail .post-content .category {
+      padding: 6px 8px 4px 8px;
+      width: 70px;
+      border-radius: 4px;
+      text-transform: uppercase;
+      font-size: 16px;
+      font-weight: 700;
+      color: white;
+      text-align: center; }
+      .post-detail .post-content .category.react-category {
+        background: #61dafb; }
+      .post-detail .post-content .category.redux-category {
+        background: #785ebc; }
+      .post-detail .post-content .category.udacity-category {
+        background: #03b3e4; }
+    .post-detail .post-content footer {
+      display: flex;
+      justify-content: space-between; }
+      .post-detail .post-content footer .score-area {
+        margin-top: 15px; }
+        .post-detail .post-content footer .score-area i {
+          margin-right: 4px;
+          font-size: 25px; }
+          .post-detail .post-content footer .score-area i.fa-star {
+            color: #eabc14;
+            margin-right: 2px;
+            font-size: 20px;
+            margin-left: 12px; }
+          .post-detail .post-content footer .score-area i.fa-thumbs-o-up, .post-detail .post-content footer .score-area i.fa-thumbs-o-down {
+            cursor: pointer; }
+          .post-detail .post-content footer .score-area i.fa-thumbs-o-up {
+            margin-right: 10px; }
+        .post-detail .post-content footer .score-area .score {
+          margin-right: 10px;
+          font-size: 19px; }
+      .post-detail .post-content footer button {
+        background: #f1fffc;
+        border: 2px solid #8fcabf;
+        border-radius: 6px;
+        text-transform: uppercase;
+        font-weight: 700;
+        cursor: pointer;
+        width: 120px;
+        display: flex;
+        justify-content: space-around;
+        font-size: 15px; }
+        .post-detail .post-content footer button:hover {
+          background: #a4c5d2; }
+        .post-detail .post-content footer button:focus {
+          outline: none; }
 
 /*# sourceMappingURL=post-detail.css.map */
