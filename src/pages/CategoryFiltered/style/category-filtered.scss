@@ -1,11 +1,10 @@
-.home {
+.category-filtered {
 
     display: flex;
     flex-direction: column;
     align-items: center;
 
     a {
-
         &.create-post {
             display: flex;
             -ms-flex-pack: distribute;

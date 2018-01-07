@@ -1,0 +1,72 @@
+.post-form {
+  max-width: 600px;
+  min-width: 200px;
+  width: 100%; }
+  .post-form h3.title {
+    margin: 5px 0;
+    color: #000;
+    font-size: 22px; }
+  .post-form form.form-content {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    border: 2px solid #000;
+    padding: 10px 25px;
+    margin: auto;
+    box-sizing: border-box;
+    border-radius: 10px; }
+    .post-form form.form-content div {
+      display: flex;
+      justify-content: space-between; }
+      .post-form form.form-content div.row {
+        margin: 5px 0;
+        align-items: center; }
+        .post-form form.form-content div.row.two-proprieties {
+          flex-wrap: wrap;
+          margin: 0; }
+          .post-form form.form-content div.row.two-proprieties > div {
+            margin: 5px 0;
+            align-items: center; }
+        .post-form form.form-content div.row input {
+          height: 29px;
+          padding-left: 15px; }
+        .post-form form.form-content div.row select {
+          height: 35px;
+          width: 90px;
+          padding-left: 7px; }
+        .post-form form.form-content div.row input,
+        .post-form form.form-content div.row textArea {
+          flex: 1; }
+        .post-form form.form-content div.row label {
+          font-family: "Times New Roman";
+          font-size: 19px;
+          font-weight: 600;
+          width: 100px; }
+    .post-form form.form-content a,
+    .post-form form.form-content button {
+      font-family: sans-serif;
+      font-size: 100%;
+      line-height: 1.15;
+      margin: 0;
+      color: white;
+      height: 35px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      text-transform: uppercase;
+      font-weight: 600;
+      margin: 4px 0;
+      border: none;
+      border-radius: 5px; }
+      .post-form form.form-content a:focus,
+      .post-form form.form-content button:focus {
+        outline: none; }
+      .post-form form.form-content a.submit,
+      .post-form form.form-content button.submit {
+        background: #3fab3f; }
+      .post-form form.form-content a.cancel,
+      .post-form form.form-content button.cancel {
+        background: #da2525; }
+
+/*# sourceMappingURL=post-form.css.map */

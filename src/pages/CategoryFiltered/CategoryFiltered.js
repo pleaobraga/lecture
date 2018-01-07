@@ -3,7 +3,8 @@ import Category from '../../components/Category/Category'
 import PostList from '../../components/Post/PostList/PostList'
 import { connect } from 'react-redux'
 import * as actions from '../../actions'
-import './style/categoryFiltered.css';
+import { Link } from 'react-router-dom'
+import './style/category-filtered.css'
 
 
 export class CategoryFiltered extends Component {
@@ -21,9 +22,10 @@ export class CategoryFiltered extends Component {
     let { filteredPosts } = this.props
 
     return (
-      <div className="home">
+      <div className="category-filtered">
         <h1> Lecture </h1>
         <Category removeFilter={true} />
+        <Link className='create-post' to='/create-post' ><i className="fa fa-plus-circle" aria-hidden="true"></i>Create New Post</Link>
         <PostList posts={filteredPosts} />
       </div>
     );

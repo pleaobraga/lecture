@@ -7,3 +7,7 @@ export const formateDate = (date) => {
 
     return `${month}/${day}/${year}`
 }
+
+export const sortListByAttribute = (list = [] , attribute) => {
+    return list.sort((a, b) => b[attribute]-a[attribute] )
+}

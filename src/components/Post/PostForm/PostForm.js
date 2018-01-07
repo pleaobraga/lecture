@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { formatedate } from '../../../Utils/utils'
 import * as api from '../../../Utils/apiUtils'
 import { Link } from 'react-router-dom'
+import './style/post-form.css'
 
 export class PostForm extends Component {
 
@@ -81,48 +82,54 @@ export class PostForm extends Component {
 
     render() {
 
-        let { categories } = this.state
-        let { 
+        let { categories } = this.state,
+            { 
             title,
             body,
             author,
             category } = this.state.post
 
         return (
-            <form onSubmit={this.handleSubmit} >
-                <div>
-                    <label>Title</label>
-                    <input 
-                        name="title"
-                        value={title}
-                        onChange={this.handleInputChange}  />
-                </div>
-                <div>
-                    <label>body</label>
-                    <textArea 
-                        name="body"
-                        value={body}
-                        onChange={this.handleInputChange}  /> 
-                </div>
-                <div>
-                    <label>author</label>
-                    <input 
-                        name="author"
-                        value={author}
-                        onChange={this.handleInputChange}  /> 
-                </div>
-                <div>
-                    <label>category</label>
-                    <select name="category" value={category} onChange={this.handleInputChange}  >
-                        {categories.map(category => {
-                            const { name } = category
-                            return <option key={name} value={name} >{name}</option>
-                        })}
-                    </select>
-                </div>
-                <button type="submit" >Submit</button>
-                <Link to="/" >Cancel</Link>
-            </form>
+            <div className='post-form' >
+                <h3 className='title' >Post Form</h3>
+                <form className='form-content' onSubmit={this.handleSubmit} >
+                    <div className='row' >
+                        <label>Title</label>
+                        <input 
+                            className='title'
+                            name="title"
+                            value={title}
+                            onChange={this.handleInputChange}  />
+                    </div>
+                    <div className='two-proprieties row' >
+                        <div>
+                            <label>Author</label>
+                            <input 
+                                name="Author"
+                                value={author}
+                                onChange={this.handleInputChange}  /> 
+                        </div>
+                        <div>
+                            <label>Category</label>
+                            <select name="category" value={category} onChange={this.handleInputChange}  >
+                                {categories.map(category => {
+                                    const { name } = category
+                                    return <option key={name} value={name} >{name}</option>
+                                })}
+                            </select>
+                        </div>
+                    </div>
+                    <div className='row' >
+                        <label>Body</label>
+                        <textArea 
+                            name="body"
+                            value={body}
+                            onChange={this.handleInputChange}  /> 
+                    </div>
+                    <button  className='submit'  type="submit" >Submit</button>
+                    <Link className='cancel' to="/" >Cancel</Link>
+                </form>
+            </div>
         )
     }
 }

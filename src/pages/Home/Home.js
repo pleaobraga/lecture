@@ -3,6 +3,7 @@ import Category from '../../components/Category/Category'
 import PostList from '../../components/Post/PostList/PostList'
 import { connect } from 'react-redux'
 import * as actions from '../../actions'
+import { Link } from 'react-router-dom'
 import './style/home.css';
 
 
@@ -18,9 +19,9 @@ export class Home extends Component {
 
     return (
       <div className="home">
-        
         <h1> Lecture </h1>
         <Category />
+        <Link className='create-post' to='/create-post' ><i className="fa fa-plus-circle" aria-hidden="true"></i>Create New Post</Link>
         <PostList posts={posts} />
       </div>
     );
