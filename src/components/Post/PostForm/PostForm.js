@@ -77,9 +77,10 @@ export class PostForm extends Component {
             })
     }
 
-    componentWillReceiveProps(nextPops) {
+    componentWillUpdate(nextPops) {
         const { post } = nextPops.post 
-        this.setState({post})
+        const copyCorrentPost = Object.assign({}, post);
+        this.setState({currentPost: post, post: copyCorrentPost})
     }
 
     createPost(post) {
@@ -111,7 +112,8 @@ export class PostForm extends Component {
             body,
             author,
             category } = this.state.post,
-            { cancelModifications } = this
+            { cancelModifications } = this,
+            { post } = this.props 
 
         return (
             <div className='post-form' >
