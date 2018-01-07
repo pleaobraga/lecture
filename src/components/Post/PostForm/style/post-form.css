@@ -35,14 +35,13 @@
           width: 90px;
           padding-left: 7px; }
         .post-form form.form-content div.row input,
-        .post-form form.form-content div.row textArea {
+        .post-form form.form-content div.row textarea {
           flex: 1; }
         .post-form form.form-content div.row label {
           font-family: "Times New Roman";
           font-size: 19px;
           font-weight: 600;
           width: 100px; }
-    .post-form form.form-content a,
     .post-form form.form-content button {
       font-family: sans-serif;
       font-size: 100%;
@@ -57,16 +56,19 @@
       text-transform: uppercase;
       font-weight: 600;
       margin: 4px 0;
-      border: none;
-      border-radius: 5px; }
-      .post-form form.form-content a:focus,
+      border: 2px solid #000;
+      border-radius: 5px;
+      background: white;
+      color: #000;
+      cursor: pointer;
+            /*&.submit {
+                background: #3fab3f;
+            }
+
+            &.reset {
+                background: #da2525;
+            }*/ }
       .post-form form.form-content button:focus {
         outline: none; }
-      .post-form form.form-content a.submit,
-      .post-form form.form-content button.submit {
-        background: #3fab3f; }
-      .post-form form.form-content a.cancel,
-      .post-form form.form-content button.cancel {
-        background: #da2525; }
 
 /*# sourceMappingURL=post-form.css.map */

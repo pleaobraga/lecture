@@ -1,0 +1,23 @@
+.create-post {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center; }
+  .create-post .back-home {
+    border: 2px solid #000;
+    text-decoration: none;
+    width: 210px;
+    margin: auto;
+    padding: 8px 0px;
+    text-align: center;
+    border-radius: 7px;
+    color: black;
+    text-transform: uppercase;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly; }
+    .create-post .back-home:hover {
+      background: #dcdada; }
+
+/*# sourceMappingURL=create-post.css.map */

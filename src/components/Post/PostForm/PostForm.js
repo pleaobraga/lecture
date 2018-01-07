@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { formatedate } from '../../../Utils/utils'
 import * as api from '../../../Utils/apiUtils'
 import { Link } from 'react-router-dom'
+import { withRouter } from 'react-router-dom'
 import './style/post-form.css'
 
 export class PostForm extends Component {
@@ -11,6 +12,17 @@ export class PostForm extends Component {
         super()
         this.state = { 
             post: {
+                id: '',
+                timestamp: '',
+                title: '',
+                body: '',
+                author: '',
+                category: 'react',
+                voteScore: '',
+                deleted: false,
+                commentCount: ''
+            },
+            currentPost: {
                 id: '',
                 timestamp: '',
                 title: '',
@@ -72,12 +84,23 @@ export class PostForm extends Component {
 
     createPost(post) {
         api.createNewPost(post)
-            .then(respose => {
+            .then(respose => {  
+                this.backToHomePage()
                 return Response.data
             })
             .catch(error => {
                 console.log(error)
             }) 
+    }
+
+    backToHomePage() {
+        this.props.history.push(`/`);
+    }
+
+    cancelModifications() {
+        const { currentPost } = this.state 
+        const copyCorrentPost = Object.assign({}, currentPost);
+        this.setState({post: copyCorrentPost})
     }
 
     render() {
@@ -87,7 +110,8 @@ export class PostForm extends Component {
             title,
             body,
             author,
-            category } = this.state.post
+            category } = this.state.post,
+            { cancelModifications } = this
 
         return (
             <div className='post-form' >
@@ -105,7 +129,7 @@ export class PostForm extends Component {
                         <div>
                             <label>Author</label>
                             <input 
-                                name="Author"
+                                name="author"
                                 value={author}
                                 onChange={this.handleInputChange}  /> 
                         </div>
@@ -121,17 +145,17 @@ export class PostForm extends Component {
                     </div>
                     <div className='row' >
                         <label>Body</label>
-                        <textArea 
+                        <textarea 
                             name="body"
                             value={body}
                             onChange={this.handleInputChange}  /> 
                     </div>
                     <button  className='submit'  type="submit" >Submit</button>
-                    <Link className='cancel' to="/" >Cancel</Link>
+                    <button className='reset' type='reset'  onClick={cancelModifications.bind(this)} >Reset</button>
                 </form>
             </div>
         )
     }
 }
 
-export default PostForm
+export default withRouter(PostForm)

@@ -51,7 +51,7 @@
                 }
     
                 input,
-                textArea {
+                textarea {
                     flex: 1;
                 }
 
@@ -64,7 +64,6 @@
             }
         }
 
-        a,
         button {
             font-family: sans-serif;
             font-size: 100%;
@@ -79,20 +78,23 @@
             text-transform: uppercase;
             font-weight: 600;
             margin: 4px 0;
-            border: none;
+            border: 2px solid #000;
             border-radius: 5px;
+            background: white;
+            color: #000;
+            cursor: pointer;
 
             &:focus {
                 outline: none;
             }
 
-            &.submit {
+            /*&.submit {
                 background: #3fab3f;
             }
 
-            &.cancel {
+            &.reset {
                 background: #da2525;
-            }
+            }*/
 
         }
     }
