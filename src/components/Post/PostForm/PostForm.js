@@ -4,6 +4,7 @@ import { formatedate } from '../../../Utils/utils'
 import * as api from '../../../Utils/apiUtils'
 import { Link } from 'react-router-dom'
 import { withRouter } from 'react-router-dom'
+import _ from 'lodash'
 import './style/post-form.css'
 
 export class PostForm extends Component {
@@ -53,11 +54,14 @@ export class PostForm extends Component {
     
     handleSubmit(event) {
         event.preventDefault();
-        
-        if(this.props.post) {
+    
+        let { post } = this.state
 
+        if(this.props.post) {
+            
+            _.isEqual(this.props.post, post) ? this.props.editPost(false) : this.editPost(post)
+            
         } else {
-            let { post } = this.state
             post.timestamp = new Date().getTime()
             post.id = 1
 
@@ -68,6 +72,13 @@ export class PostForm extends Component {
   
     componentDidMount() {
         this.setCategory();
+
+        const { post } = this.props 
+
+        if(post) {
+            const copyCorrentPost = Object.assign({}, post);
+            this.setState({currentPost: post, post: copyCorrentPost})
+        }
     }
 
     setCategory() {
@@ -75,12 +86,6 @@ export class PostForm extends Component {
             .then( response => {
                 this.setState({ categories: response.data.categories})  
             })
-    }
-
-    componentWillUpdate(nextPops) {
-        const { post } = nextPops.post 
-        const copyCorrentPost = Object.assign({}, post);
-        this.setState({currentPost: post, post: copyCorrentPost})
     }
 
     createPost(post) {
@@ -92,6 +97,17 @@ export class PostForm extends Component {
             .catch(error => {
                 console.log(error)
             }) 
+    }
+
+    editPost(post) {
+        api.editPost(post)
+            .then(response => { 
+                window.location.reload(); 
+                return response.data
+            })
+            .catch(error => {
+                console.log(error)
+            })
     }
 
     backToHomePage() {
@@ -108,12 +124,12 @@ export class PostForm extends Component {
 
         let { categories } = this.state,
             { 
-            title,
-            body,
-            author,
-            category } = this.state.post,
+              title,
+              body,
+              author,
+              category } = this.state.post,
             { cancelModifications } = this,
-            { post } = this.props 
+            { post, editPost } = this.props 
 
         return (
             <div className='post-form' >
@@ -153,7 +169,7 @@ export class PostForm extends Component {
                             onChange={this.handleInputChange}  /> 
                     </div>
                     <button  className='submit'  type="submit" >Submit</button>
-                    <button className='reset' type='reset'  onClick={cancelModifications.bind(this)} >Reset</button>
+                            { post && <button className='reset' type='button'  onClick={() => editPost(false)} >Cancel</button>}               
                 </form>
             </div>
         )

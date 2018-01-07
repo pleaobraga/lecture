@@ -27,7 +27,7 @@ export class PostView extends Component {
     }
 
     renderPostComponent(post, editPost) {
-        return !this.state.editPost ? <PostDetail post={post} editPost={editPost.bind(this)} /> : <PostForm post={post} />
+        return !this.state.editPost ? <PostDetail post={post} editPost={editPost.bind(this)} /> : <PostForm post={post} editPost={editPost.bind(this)} />
     }
 
     render() {

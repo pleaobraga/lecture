@@ -7,7 +7,7 @@
     a {
         &.create-post {
             display: flex;
-            -ms-flex-pack: distribute;
+            flex-direction: row;
             justify-content: space-around;
             width: 184px;
             margin-bottom: 19px;

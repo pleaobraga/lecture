@@ -28,3 +28,7 @@ export const getPostComments = (idPost) => {
 export const createNewPost = (post) => {
     return axios.post(`${constant.URL_BASE}/posts/`, post, config)
 }
+
+export const editPost = (post) => {
+    return axios.put(`${constant.URL_BASE}/posts/${post.id}`, post, config)
+}
