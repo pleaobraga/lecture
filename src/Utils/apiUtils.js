@@ -32,3 +32,7 @@ export const createNewPost = (post) => {
 export const editPost = (post) => {
     return axios.put(`${constant.URL_BASE}/posts/${post.id}`, post, config)
 }
+
+export const votePost = (vote, idPost) => {
+    return axios.post(`${constant.URL_BASE}/posts/${idPost}`, vote, config)
+}

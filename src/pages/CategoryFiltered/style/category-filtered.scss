@@ -5,11 +5,15 @@
     align-items: center;
 
     a {
+
         &.create-post {
+            min-width: 200px;
+            max-width: 580px;
+            width: 100%;
+            box-sizing: border-box;
             display: flex;
             flex-direction: row;
-            justify-content: space-around;
-            width: 184px;
+            justify-content: center;
             margin-bottom: 19px;
             margin-top: 8px;
             border: 2px solid #000;
@@ -21,7 +25,6 @@
             font-size: 16px;
             font-weight: 600;
             text-transform: uppercase;
-            
 
             i {
                 margin-right: 8px;

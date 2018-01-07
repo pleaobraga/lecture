@@ -54,7 +54,7 @@
             margin-left: 12px; }
           .post-detail .post-content footer .score-area i.fa-thumbs-o-up, .post-detail .post-content footer .score-area i.fa-thumbs-o-down {
             cursor: pointer; }
-          .post-detail .post-content footer .score-area i.fa-thumbs-o-up {
+          .post-detail .post-content footer .score-area i.fa-thumbs-o-up, .post-detail .post-content footer .score-area i.fa-thumbs-up {
             margin-right: 10px; }
         .post-detail .post-content footer .score-area .score {
           margin-right: 10px;

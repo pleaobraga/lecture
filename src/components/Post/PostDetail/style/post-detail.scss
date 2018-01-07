@@ -78,11 +78,13 @@
                         margin-left: 12px;
                     }
         
-                    &.fa-thumbs-o-up, &.fa-thumbs-o-down {
+                    &.fa-thumbs-o-up, 
+                    &.fa-thumbs-o-down {
                         cursor: pointer
                     }
         
-                    &.fa-thumbs-o-up {
+                    &.fa-thumbs-o-up,
+                    &.fa-thumbs-up {
                         margin-right: 10px;
                     }
                 }
