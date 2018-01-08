@@ -11,6 +11,11 @@ const editCommentSuccess = (comment) => ({
     comment
 })
 
+const createCommentSuccess = (comment) => ({
+    type: constant.CREATE_COMMENT,
+    comment
+})
+
 export const getPostComments = (idPost) => dispatch => {
     return api.getPostComments(idPost)
         .then(response => {
@@ -19,11 +24,18 @@ export const getPostComments = (idPost) => dispatch => {
         })
 }
 
-export const editComent = (comment) => dispatch => {
+export const editComment = (comment) => dispatch => {
     return api.editComment(comment)
         .then(response => {
             dispatch(editCommentSuccess(response.data))
-            
-            return Response.data
+            return response.data
+        })
+}
+
+export const createComment = (comment) => dispatch => {
+    return api.createNewComment(comment)
+        .then(response => {
+            dispatch(createCommentSuccess(response.data))
+            return response.data
         })
 }

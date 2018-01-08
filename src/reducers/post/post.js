@@ -1,5 +1,6 @@
 import * as constant from '../../Utils/constants'
 import { sortListByAttribute } from '../../Utils/utils'
+import _ from 'lodash'
 
 const posts = function(state = {}, action) {
 
@@ -11,6 +12,8 @@ const posts = function(state = {}, action) {
         case constant.GET_CATEGORY_POSTS:
             return {...state, filteredPosts: action.filteredPosts}
         case constant.GET_POST_DETAIL:
+            return {...state, postDetail: action.post}
+        case constant.EDIT_POST:
             return {...state, postDetail: action.post}
         default: 
             return state

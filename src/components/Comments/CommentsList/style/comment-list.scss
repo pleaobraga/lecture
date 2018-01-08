@@ -11,6 +11,26 @@
         font-size: 22px;
     }
 
+
+    .create-comment {
+        justify-content: center;
+        margin-bottom: 5px;
+        margin-top: 8px;
+        border: 2px solid #000;
+        border-radius: 5px;
+        padding: 10px;
+        background: #47bd4b;
+        text-decoration: none;
+        color: #000;
+        font-size: 16px;
+        font-weight: 600;
+        text-transform: uppercase;
+
+        i {
+            margin-right: 8px;
+        }
+    }
+
     .comment-item{
         display: flex;
         -ms-flex-direction: column;

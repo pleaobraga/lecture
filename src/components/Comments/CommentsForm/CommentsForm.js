@@ -5,6 +5,7 @@ import * as api from '../../../Utils/apiUtils'
 import { Link, withRouter  } from 'react-router-dom'
 import _ from 'lodash'
 import * as actions from '../../../actions'
+import uuidv1 from 'uuid/v1'
 import './style/comments-form.css'
 
 export class CommentsForm extends Component {
@@ -54,11 +55,12 @@ export class CommentsForm extends Component {
 
         if(this.props.comment) {
             
-            _.isEqual(this.props.comment, comment) ? this.props.cancelEdit(comment) : this.editComment(comment)
+            _.isEqual(this.props.comment, comment) ? this.props.cancel(comment) : this.editComment(comment)
             
         } else {
             comment.timestamp = new Date().getTime()
-            comment.id = 1
+            comment.id = uuidv1()
+            comment.parentId = this.props.idPost
 
             this.createComment(comment)
         }
@@ -75,10 +77,9 @@ export class CommentsForm extends Component {
     }
 
     createComment(comment) {
-        api.createNewComment(comment)
-            .then(respose => {  
-                //this.backToHomePage()
-                return Response.data
+        this.props.createComment(comment)
+            .then(() => {  
+                this.props.cancel(comment)
             })
             .catch(error => {
                 console.log(error)
@@ -88,7 +89,7 @@ export class CommentsForm extends Component {
     editComment(comment) {
         this.props.editComment(comment)
             .then(response => {
-                this.props.cancelEdit(comment)
+                this.props.cancel(comment)
             })
     }
 
@@ -103,13 +104,12 @@ export class CommentsForm extends Component {
     }
 
     render() {
-
         let { 
               body,
               author,
               category } = this.state.comment,
             { cancelModifications } = this,
-            { comment, cancelEdit } = this.props 
+            { comment, cancel } = this.props 
 
         return (
             <div className='comments-form' >
@@ -131,7 +131,7 @@ export class CommentsForm extends Component {
                             onChange={this.handleInputChange}  /> 
                     </div>
                     <button  className='submit'  type="submit" >Submit</button>
-                            { comment && <button className='reset' type='button'  onClick={() => cancelEdit(comment)} >Cancel</button>}               
+                    <button className='reset' type='button'  onClick={() => cancel(comment)} >Cancel</button>               
                 </form>
             </div>
         )
@@ -139,7 +139,8 @@ export class CommentsForm extends Component {
 }
 
 const mapDispatchToProps = dispatch => ({
-    editComment: (comment) => dispatch(actions.comments.editComent(comment))
+    editComment: (comment) => dispatch(actions.comments.editComment(comment)),
+    createComment: (comment) => dispatch(actions.comments.createComment(comment))
 })
   
   

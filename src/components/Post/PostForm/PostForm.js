@@ -4,7 +4,9 @@ import { formatedate } from '../../../Utils/utils'
 import * as api from '../../../Utils/apiUtils'
 import { Link } from 'react-router-dom'
 import { withRouter } from 'react-router-dom'
+import * as actions from '../../../actions'
 import _ from 'lodash'
+import uuidv1 from 'uuid/v1'
 import './style/post-form.css'
 
 export class PostForm extends Component {
@@ -59,11 +61,11 @@ export class PostForm extends Component {
 
         if(this.props.post) {
             
-            _.isEqual(this.props.post, post) ? this.props.editPost(false) : this.editPost(post)
+            _.isEqual(this.props.post, post) ? this.props.editingPost(false) : this.editPost(post)
             
         } else {
             post.timestamp = new Date().getTime()
-            post.id = 1
+            post.id = uuidv1()
 
             this.createPost(post)
         }
@@ -100,10 +102,9 @@ export class PostForm extends Component {
     }
 
     editPost(post) {
-        api.editPost(post)
+        this.props.editPost(post)
             .then(response => { 
-                window.location.reload(); 
-                return response.data
+                this.props.editingPost(false)
             })
             .catch(error => {
                 console.log(error)
@@ -129,7 +130,7 @@ export class PostForm extends Component {
               author,
               category } = this.state.post,
             { cancelModifications } = this,
-            { post, editPost } = this.props 
+            { post, editingPost } = this.props 
 
         return (
             <div className='post-form' >
@@ -169,11 +170,15 @@ export class PostForm extends Component {
                             onChange={this.handleInputChange}  /> 
                     </div>
                     <button  className='submit'  type="submit" >Submit</button>
-                            { post && <button className='reset' type='button'  onClick={() => editPost(false)} >Cancel</button>}               
+                            { post && <button className='reset' type='button'  onClick={() => editingPost(false)} >Cancel</button>}               
                 </form>
             </div>
         )
     }
 }
 
-export default withRouter(PostForm)
+const mapDispatchToProps = dispatch => ({
+    editPost: post => dispatch(actions.post.editPost(post)) 
+})
+
+export default withRouter(connect(null, mapDispatchToProps)(PostForm))

@@ -55,7 +55,7 @@ function PostDetail(props) {
                             <i className="fa fa-star" aria-hidden="true" ></i>
                             <span className="score" >{voteScore}</span>
                         </div>
-                        <button onClick={() => props.editPost(true)} ><i className="fa fa-pencil" aria-hidden="true"></i>Edit Post</button>
+                        <button onClick={() => props.editingPost(true)} ><i className="fa fa-pencil" aria-hidden="true"></i>Edit Post</button>
                     </footer>
                 </div>
             </div>

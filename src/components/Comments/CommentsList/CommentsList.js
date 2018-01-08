@@ -7,7 +7,7 @@ import './style/comment-list.css'
 
     constructor() {
         super()
-        this.state = { editCommentList: [] }
+        this.state = { editCommentList: [], createComment: false }
     }
 
     removeElementFromCommentList(comment) {
@@ -24,6 +24,10 @@ import './style/comment-list.css'
         editCommentList.push(comment.id)
         
         this.setState({editCommentList})
+    }
+
+    calcelCreateComment() {
+        this.setState({createComment: false})
     }
 
     renderComment (comment) {
@@ -58,7 +62,13 @@ import './style/comment-list.css'
 
     renderCommentsItems (comments = []) {
         return comments.map(comment => {
-            return this.state.editCommentList.indexOf(comment.id) === -1  ? this.renderComment(comment) : <CommentsForm key={comment.id} comment={comment} cancelEdit={this.removeElementFromCommentList.bind(this)} />
+            return this.state.editCommentList.indexOf(comment.id) === -1  ? 
+                this.renderComment(comment) 
+                : <CommentsForm 
+                    key={comment.id} 
+                    comment={comment} 
+                    idPost={this.props.idPost}  
+                    cancel={this.removeElementFromCommentList.bind(this)} />
         })
     }
 
@@ -66,6 +76,18 @@ import './style/comment-list.css'
         return (
             <div className='comments-list' >
                 <h3>Comments</h3>
+                { !this.state.createComment && 
+                  <button 
+                    className="create-comment"  
+                    onClick={() => this.setState({createComment: true}) } >
+                    <i className="fa fa-plus-circle" aria-hidden="true"></i>
+                    Create Comment
+                </button>
+                }
+                { this.state.createComment && 
+                  <CommentsForm 
+                    idPost={this.props.idPost}  
+                    cancel={this.calcelCreateComment.bind(this)} />  }
                 {this.renderCommentsItems(this.props.comments)}
             </div>
         )

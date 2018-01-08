@@ -22,21 +22,24 @@ export class PostView extends Component {
         this.props.getPostComments(idPost)
     }
 
-    editPost(value) {
+    
+    editingPost(value) {
         this.setState({editPost: value});
     }
 
-    renderPostComponent(post, editPost) {
-        return !this.state.editPost ? <PostDetail post={post} editPost={editPost.bind(this)} /> : <PostForm post={post} editPost={editPost.bind(this)} />
+    renderPostComponent(post, editingPost) {
+        return !this.state.editPost ? <PostDetail post={post} editingPost={editingPost.bind(this)} /> : <PostForm post={post} editingPost={editingPost.bind(this)} />
     }
 
     render() {
         const { post, comments } = this.props
+        const idPost =  post !== undefined ? post.id : null 
+
         return (
             <div className="post-view" >
                 <Link to={`/`} className='back-home'><i className="fa fa-chevron-left" aria-hidden="true"></i> Back to post list</Link>
-                {this.renderPostComponent(post, this.editPost)}
-                <CommentsList comments={comments} />
+                {this.renderPostComponent(post, this.editingPost)}
+                <CommentsList comments={comments} idPost={idPost} />
             </div>
 
         );
