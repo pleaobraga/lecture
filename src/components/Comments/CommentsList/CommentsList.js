@@ -58,7 +58,7 @@ import './style/comment-list.css'
 
     renderCommentsItems (comments = []) {
         return comments.map(comment => {
-            return this.state.editCommentList.indexOf(comment.id) === -1  ? this.renderComment(comment) : <CommentsForm key={comment.id} comment={comment} editComment={this.removeElementFromCommentList.bind(this)} />
+            return this.state.editCommentList.indexOf(comment.id) === -1  ? this.renderComment(comment) : <CommentsForm key={comment.id} comment={comment} cancelEdit={this.removeElementFromCommentList.bind(this)} />
         })
     }
 

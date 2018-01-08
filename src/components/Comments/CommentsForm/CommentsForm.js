@@ -4,6 +4,7 @@ import { formatedate } from '../../../Utils/utils'
 import * as api from '../../../Utils/apiUtils'
 import { Link, withRouter  } from 'react-router-dom'
 import _ from 'lodash'
+import * as actions from '../../../actions'
 import './style/comments-form.css'
 
 export class CommentsForm extends Component {
@@ -53,7 +54,7 @@ export class CommentsForm extends Component {
 
         if(this.props.comment) {
             
-            _.isEqual(this.props.comment, comment) ? this.props.editComment(comment) : this.editComment(comment)
+            _.isEqual(this.props.comment, comment) ? this.props.cancelEdit(comment) : this.editComment(comment)
             
         } else {
             comment.timestamp = new Date().getTime()
@@ -85,13 +86,9 @@ export class CommentsForm extends Component {
     }
 
     editComment(comment) {
-        api.editComment(comment)
-            .then(response => { 
-                //window.location.reload(); 
-                return response.data
-            })
-            .catch(error => {
-                console.log(error)
+        this.props.editComment(comment)
+            .then(response => {
+                this.props.cancelEdit(comment)
             })
     }
 
@@ -112,7 +109,7 @@ export class CommentsForm extends Component {
               author,
               category } = this.state.comment,
             { cancelModifications } = this,
-            { comment, editComment } = this.props 
+            { comment, cancelEdit } = this.props 
 
         return (
             <div className='comments-form' >
@@ -134,11 +131,16 @@ export class CommentsForm extends Component {
                             onChange={this.handleInputChange}  /> 
                     </div>
                     <button  className='submit'  type="submit" >Submit</button>
-                            { comment && <button className='reset' type='button'  onClick={() => editComment(comment)} >Cancel</button>}               
+                            { comment && <button className='reset' type='button'  onClick={() => cancelEdit(comment)} >Cancel</button>}               
                 </form>
             </div>
         )
     }
 }
 
-export default withRouter(CommentsForm)
+const mapDispatchToProps = dispatch => ({
+    editComment: (comment) => dispatch(actions.comments.editComent(comment))
+})
+  
+  
+export default connect(null, mapDispatchToProps)(CommentsForm);
