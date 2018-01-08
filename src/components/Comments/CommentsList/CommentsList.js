@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import { formateDate } from '../../../Utils/utils'
 import  CommentsForm from '../CommentsForm/CommentsForm'
 import './style/comment-list.css'
+import * as actions from '../../../actions'
+import { connect } from 'react-redux'
 
  class CommentsList extends Component {
 
@@ -30,6 +32,10 @@ import './style/comment-list.css'
         this.setState({createComment: false})
     }
 
+    voteOnComment(vote, comment) {
+        this.props.voteComment(vote, comment)
+            .catch(erro => console.log(erro))
+    }
     renderComment (comment) {
         let {
             id,
@@ -50,8 +56,14 @@ import './style/comment-list.css'
                         <div className='score-area'>
                             <i className="fa fa-star" aria-hidden="true" ></i>
                             <span className="score" >{voteScore}</span>
-                            <i className="fa fa-thumbs-o-up" aria-hidden="true"></i>
-                            <i className="fa fa-thumbs-o-down" aria-hidden="true"></i>
+                            <i 
+                                onClick={() => this.voteOnComment('upVote',comment)} 
+                                className={`fa fa-thumbs${comment.voted && comment.voted === 'up' ? '' : '-o'  }-up`} 
+                                aria-hidden="true"></i>
+                            <i 
+                                onClick={ () => this.voteOnComment('downVote',comment)} 
+                                className={`fa fa-thumbs${comment.voted && comment.voted === 'down' ? '' : '-o'  }-down`} 
+                                aria-hidden="true"></i>
                         </div>
                         <button onClick={() => this.addElementToCommentList(comment) } ><i className="fa fa-pencil" aria-hidden="true"></i>Edit Comment</button>
                     </div>
@@ -94,4 +106,8 @@ import './style/comment-list.css'
     }
 }
 
-export default CommentsList
+const mapDispatchToProps = dispatch => ({
+    voteComment: (vote, comment) => dispatch(actions.comments.voteComment(vote, comment))
+})
+
+export default connect(null, mapDispatchToProps)(CommentsList)

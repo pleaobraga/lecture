@@ -15,6 +15,9 @@ const posts = function(state = {}, action) {
             return {...state, postDetail: action.post}
         case constant.EDIT_POST:
             return {...state, postDetail: action.post}
+        case constant.VOTE_POST:
+            action.post.voted = action.vote.split('Vote')[0] 
+            return {...state, postDetail: action.post}
         default: 
             return state
     }

@@ -16,6 +16,12 @@ const createCommentSuccess = (comment) => ({
     comment
 })
 
+const voteCommentSuccess = (comment, vote) => ({
+    type: constant.VOTE_COMMENT,
+    comment,
+    vote
+})
+
 export const getPostComments = (idPost) => dispatch => {
     return api.getPostComments(idPost)
         .then(response => {
@@ -36,6 +42,14 @@ export const createComment = (comment) => dispatch => {
     return api.createNewComment(comment)
         .then(response => {
             dispatch(createCommentSuccess(response.data))
+            return response.data
+        })
+}
+
+export const voteComment = (vote, comment) => dispatch => {
+    return api.voteComment({option: vote}, comment.id)
+        .then(response => {
+            dispatch(voteCommentSuccess(response.data, vote))
             return response.data
         })
 }

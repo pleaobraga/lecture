@@ -23,6 +23,12 @@ const editPostSuccess = (post) => ({
     post
 })
 
+const votePostSuccess = (post, vote) => ({
+    type: constant.VOTE_POST,
+    post,
+    vote
+})
+
 export const getAllPosts = () => dispatch => {
     return api.getAllPost()
         .then(response => {
@@ -54,4 +60,12 @@ export const editPost = (post) => dispatch => {
             return response.data
         })
 }
+
+export const votePost = (vote, post) => dispatch =>  {
+    return api.votePost({option: vote}, post.id)
+        .then(response => {
+            dispatch(votePostSuccess(response.data, vote))
+            return response;
+        })
+} 
 
