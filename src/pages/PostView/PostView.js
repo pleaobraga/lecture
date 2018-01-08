@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import PostDetail from '../../components/Post/PostDetail/PostDetail'
 import PostForm from '../../components/Post/PostForm/PostForm'
-import CommentsList from '../../components/CommentsList/CommentsList'
+import CommentsList from '../../components/Comments/CommentsList/CommentsList'
 import { connect } from 'react-redux'
 import * as actions from '../../actions/index'
 import { Link } from 'react-router-dom'
