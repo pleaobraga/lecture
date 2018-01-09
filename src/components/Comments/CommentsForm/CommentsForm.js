@@ -115,13 +115,11 @@ export class CommentsForm extends Component {
             <div className='comments-form' >
                 <form className='form-content' onSubmit={this.handleSubmit} >
                     <div className='row' >
-                        <div>
-                            <label>Author</label>
-                            <input 
-                                name="author"
-                                value={author}
-                                onChange={this.handleInputChange}  /> 
-                        </div>
+                        <label>Author</label>
+                        <input 
+                            name="author"
+                            value={author}
+                            onChange={this.handleInputChange}  /> 
                     </div>
                     <div className='row' >
                         <label>Body</label>
