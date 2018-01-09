@@ -8,8 +8,12 @@ import * as actions from '../../../actions'
 function PostDetail(props) {
 
     function voteOnPost(vote, post) {
-        props.votePost(vote, post)
-            .catch(erro => console.log(erro))
+        if((post.voted && post.voted !== vote.split('Vote')[0]) || !post.voted )
+            props.votePost(vote, post)
+                .then((newPost) => {
+                    props.editPost(newPost)
+                })
+                .catch(erro => console.log(erro))
     }
 
     if(props.post) {
@@ -52,7 +56,9 @@ function PostDetail(props) {
 }
 
 const mapDispatchToProps = dispatch => ({
-    votePost: (vote, post) => dispatch(actions.post.votePost(vote, post))
+    votePost: (vote, post) => dispatch(actions.post.votePost(vote, post)),
+    editPost: post => dispatch(actions.post.editPost(post)) 
+
 })
 
 export default connect(null,mapDispatchToProps)(PostDetail)

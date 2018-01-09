@@ -50,6 +50,7 @@ export const voteComment = (vote, comment) => dispatch => {
     return api.voteComment({option: vote}, comment.id)
         .then(response => {
             dispatch(voteCommentSuccess(response.data, vote))
+            response.data.voted = vote.split('Vote')[0]
             return response.data
         })
 }

@@ -65,7 +65,8 @@ export const votePost = (vote, post) => dispatch =>  {
     return api.votePost({option: vote}, post.id)
         .then(response => {
             dispatch(votePostSuccess(response.data, vote))
-            return response;
+            response.data.voted = vote.split('Vote')[0]
+            return response.data
         })
 } 
 

@@ -78,6 +78,12 @@
                         font-size: 21px; 
                         cursor: pointer;
 
+                        &.fa-thumbs-up,
+                        &.fa-thumbs-down {
+                            cursor: default;
+                        }
+
+
                         &.fa-star {
                             font-size: 17px;
                             cursor: default;

@@ -59,6 +59,8 @@
             margin: 0 5px;
             font-size: 21px;
             cursor: pointer; }
+            .comments-list .comment-item footer .right-area .score-area i.fa-thumbs-up, .comments-list .comment-item footer .right-area .score-area i.fa-thumbs-down {
+              cursor: default; }
             .comments-list .comment-item footer .right-area .score-area i.fa-star {
               font-size: 17px;
               cursor: default;

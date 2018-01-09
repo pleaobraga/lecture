@@ -33,16 +33,23 @@ import { connect } from 'react-redux'
     }
 
     voteOnComment(vote, comment) {
-        this.props.voteComment(vote, comment)
-            .catch(erro => console.log(erro))
+        if((comment.voted && comment.voted !== vote.split('Vote')[0]) || !comment.voted )
+            this.props.voteComment(vote, comment)
+                .then((newComment) => {
+                    this.forceUpdate()
+                    this.props.editComment(newComment)
+                })
+                .catch(erro => console.log(erro))
     }
+
     renderComment (comment) {
         let {
-            id,
-            timestamp,
-            body,
-            author,
-            voteScore} = comment
+              id,
+              timestamp,
+              body,
+              author,
+              voteScore 
+            } = comment
         
         return(
             <div key={id} id={id} className="comment-item"  >
@@ -58,11 +65,11 @@ import { connect } from 'react-redux'
                             <span className="score" >{voteScore}</span>
                             <i 
                                 onClick={() => this.voteOnComment('upVote',comment)} 
-                                className={`fa fa-thumbs${comment.voted && comment.voted === 'up' ? '' : '-o'  }-up`} 
+                                className={`fa fa-thumbs${comment.voted && comment.voted === 'up' ? '' : '-o'}-up`} 
                                 aria-hidden="true"></i>
                             <i 
                                 onClick={ () => this.voteOnComment('downVote',comment)} 
-                                className={`fa fa-thumbs${comment.voted && comment.voted === 'down' ? '' : '-o'  }-down`} 
+                                className={`fa fa-thumbs${comment.voted && comment.voted === 'down' ? '' : '-o'}-down`} 
                                 aria-hidden="true"></i>
                         </div>
                         <button onClick={() => this.addElementToCommentList(comment) } ><i className="fa fa-pencil" aria-hidden="true"></i>Edit Comment</button>
@@ -85,6 +92,9 @@ import { connect } from 'react-redux'
     }
 
     render() {
+
+        const { comments, idPost } =  this.props
+
         return (
             <div className='comments-list' >
                 <h3>Comments</h3>
@@ -98,16 +108,17 @@ import { connect } from 'react-redux'
                 }
                 { this.state.createComment && 
                   <CommentsForm 
-                    idPost={this.props.idPost}  
+                    idPost={idPost}  
                     cancel={this.calcelCreateComment.bind(this)} />  }
-                {this.renderCommentsItems(this.props.comments)}
+                {this.renderCommentsItems(comments)}
             </div>
         )
     }
 }
 
 const mapDispatchToProps = dispatch => ({
-    voteComment: (vote, comment) => dispatch(actions.comments.voteComment(vote, comment))
+    voteComment: (vote, comment) => dispatch(actions.comments.voteComment(vote, comment)),
+    editComment: (comment) => dispatch(actions.comments.editComment(comment)),
 })
 
 export default connect(null, mapDispatchToProps)(CommentsList)
