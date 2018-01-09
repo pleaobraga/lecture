@@ -93,24 +93,26 @@ import { connect } from 'react-redux'
     }
 
     render() {
-
         const { comments, idPost } =  this.props
 
         return (
             <div className='comments-list' >
                 <h3>Comments</h3>
-                { !this.state.createComment && 
-                  <button 
-                    className="create-comment"  
-                    onClick={() => this.setState({createComment: true}) } >
-                    <i className="fa fa-plus-circle" aria-hidden="true"></i>
-                    Create Comment
-                </button>
+                { 
+                    !this.state.createComment && 
+                    <button 
+                        className="create-comment"  
+                        onClick={() => this.setState({createComment: true}) } >
+                        <i className="fa fa-plus-circle" aria-hidden="true"></i>
+                        Create Comment
+                    </button>
                 }
-                { this.state.createComment && 
-                  <CommentsForm 
-                    idPost={idPost}  
-                    cancel={this.calcelCreateComment.bind(this)} />  }
+                { 
+                    this.state.createComment && 
+                    <CommentsForm 
+                        idPost={idPost}  
+                        cancel={this.calcelCreateComment.bind(this)} />  
+                }
                 {this.renderCommentsItems(comments)}
             </div>
         )

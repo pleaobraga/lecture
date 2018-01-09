@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { connect } from 'react-redux'
 import PostForm from '../../components/Post/PostForm/PostForm'
 import { Link } from 'react-router-dom'
 import './style/create-post.css'

@@ -1,8 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { formatedate } from '../../../Utils/utils'
 import * as api from '../../../Utils/apiUtils'
-import { Link, withRouter} from 'react-router-dom'
+import { withRouter} from 'react-router-dom'
 import * as actions from '../../../actions'
 import _ from 'lodash'
 import uuidv1 from 'uuid/v1'
@@ -114,12 +113,6 @@ export class PostForm extends Component {
         this.props.history.push(`/`);
     }
 
-    cancelModifications() {
-        const { currentPost } = this.state 
-        const copyCorrentPost = Object.assign({}, currentPost);
-        this.setState({post: copyCorrentPost})
-    }
-
     render() {
 
         let { categories } = this.state,
@@ -128,7 +121,6 @@ export class PostForm extends Component {
               body,
               author,
               category } = this.state.post,
-            { cancelModifications } = this,
             { post, editingPost } = this.props 
 
         return (
@@ -169,7 +161,7 @@ export class PostForm extends Component {
                             onChange={this.handleInputChange}  /> 
                     </div>
                     <button  className='submit'  type="submit" >Submit</button>
-                            { post && <button className='reset' type='button'  onClick={() => editingPost(false)} >Cancel</button>}               
+                            { post && <button className='reset' type='button'  onClick={() => editingPost(false)} >Cancel</button> }               
                 </form>
             </div>
         )

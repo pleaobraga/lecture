@@ -1,6 +1,5 @@
 import React from 'react'
 import { formateDate } from '../../../Utils/utils'
-import { votePost } from '../../../Utils/apiUtils'
 import './style/post-detail.css'
 import { connect } from 'react-redux' 
 import { withRouter } from 'react-router-dom'
@@ -32,7 +31,6 @@ function PostDetail(props) {
             author, 
             category, 
             voteScore, 
-            commentCount, 
             timestamp } = props.post
  
 

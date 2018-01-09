@@ -11,7 +11,7 @@ export const getCategory = () => {
     return axios.get(`${constant.URL_BASE}/categories`, config);
 }
 
-export const getCategoryPosts = (category) => {
+export const getCategoryPosts = category => {
     return axios.get(`${constant.URL_BASE}/${category}/posts`, config);
 }
 
@@ -43,15 +43,15 @@ export const deletePost = idPost => {
 
 
 //Comment requisitions
-export const getPostComments = (idPost) => {
+export const getPostComments = idPost => {
     return axios.get(`${constant.URL_BASE}/posts/${idPost}/comments`, config);
 }
 
-export const editComment = (comment) => {
+export const editComment = comment => {
     return axios.put(`${constant.URL_BASE}/comments/${comment.id}`, comment, config)
 }
 
-export const createNewComment = (comment) => {
+export const createNewComment = comment => {
     return axios.post(`${constant.URL_BASE}/comments/`, comment, config)
 }
 

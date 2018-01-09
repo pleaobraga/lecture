@@ -1,5 +1,5 @@
 
-export const formateDate = (date) => {
+export const formateDate = date => {
     let formateDate = new Date(date),
         day = formateDate.getDate() > 9 ? formateDate.getDate() : '0' + formateDate.getDate(),
         month = formateDate.getMonth() + 1 > 9 ? formateDate.getMonth() + 1 : '0' + (formateDate.getMonth() + 1),

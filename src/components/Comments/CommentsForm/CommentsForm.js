@@ -1,8 +1,5 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { formatedate } from '../../../Utils/utils'
-import * as api from '../../../Utils/apiUtils'
-import { Link, withRouter  } from 'react-router-dom'
 import _ from 'lodash'
 import * as actions from '../../../actions'
 import uuidv1 from 'uuid/v1'
@@ -97,18 +94,9 @@ export class CommentsForm extends Component {
         this.props.history.push(`/`);
     }
 
-    cancelModifications() {
-        const { currentComment } = this.state 
-        const copyCorrentComment = Object.assign({}, currentComment);
-        this.setState({comment: copyCorrentComment})
-    }
 
     render() {
-        let { 
-              body,
-              author,
-              category } = this.state.comment,
-            { cancelModifications } = this,
+        let { body, author } = this.state.comment,
             { comment, cancel } = this.props 
 
         return (
