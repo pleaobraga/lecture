@@ -5,6 +5,7 @@ import './style/comment-list.css'
 import * as actions from '../../../actions'
 import { connect } from 'react-redux'
 
+
  class CommentsList extends Component {
 
     constructor() {

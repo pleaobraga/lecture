@@ -41,9 +41,10 @@
         background: #03b3e4; }
     .post-detail .post-content footer {
       display: flex;
-      justify-content: space-between; }
+      justify-content: space-between;
+      flex-wrap: wrap; }
       .post-detail .post-content footer .score-area {
-        margin-top: 15px; }
+        margin-top: 20px; }
         .post-detail .post-content footer .score-area i {
           margin-right: 4px;
           font-size: 25px; }
@@ -59,20 +60,27 @@
         .post-detail .post-content footer .score-area .score {
           margin-right: 10px;
           font-size: 19px; }
-      .post-detail .post-content footer button {
-        background: #f1fffc;
-        border: 2px solid #8fcabf;
-        border-radius: 6px;
-        text-transform: uppercase;
-        font-weight: 700;
-        cursor: pointer;
-        width: 120px;
+      .post-detail .post-content footer .action-buttons {
         display: flex;
-        justify-content: space-around;
-        font-size: 15px; }
-        .post-detail .post-content footer button:hover {
-          background: #a4c5d2; }
-        .post-detail .post-content footer button:focus {
-          outline: none; }
+        flex-wrap: wrap;
+        width: 260px;
+        justify-content: space-between;
+        margin-top: 20px; }
+        .post-detail .post-content footer .action-buttons button {
+          background: #f1fffc;
+          border: 2px solid #8fcabf;
+          border-radius: 6px;
+          text-transform: uppercase;
+          font-weight: 700;
+          cursor: pointer;
+          width: 120px;
+          display: flex;
+          justify-content: space-around;
+          font-size: 15px;
+          padding: 7px 8px; }
+          .post-detail .post-content footer .action-buttons button:hover {
+            background: #a4c5d2; }
+          .post-detail .post-content footer .action-buttons button:focus {
+            outline: none; }
 
 /*# sourceMappingURL=post-detail.css.map */

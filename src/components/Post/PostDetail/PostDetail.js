@@ -3,7 +3,9 @@ import { formateDate } from '../../../Utils/utils'
 import { votePost } from '../../../Utils/apiUtils'
 import './style/post-detail.css'
 import { connect } from 'react-redux' 
+import { withRouter } from 'react-router-dom'
 import * as actions from '../../../actions' 
+import * as api from '../../../Utils/apiUtils'
 
 function PostDetail(props) {
 
@@ -14,6 +16,13 @@ function PostDetail(props) {
                     props.editPost(newPost)
                 })
                 .catch(erro => console.log(erro))
+    }
+
+    function deletPost() {
+        api.deletePost(props.post.id)
+            .then(() => {
+                props.history.push(`/`);
+            })
     }
 
     if(props.post) {
@@ -45,7 +54,10 @@ function PostDetail(props) {
                             <i className="fa fa-star" aria-hidden="true" ></i>
                             <span className="score" >{voteScore}</span>
                         </div>
-                        <button onClick={() => props.editingPost(true)} ><i className="fa fa-pencil" aria-hidden="true"></i>Edit Post</button>
+                        <div className='action-buttons' >
+                            <button onClick={() => props.editingPost(true)} ><i className="fa fa-pencil" aria-hidden="true"></i>Edit Post</button>
+                            <button onClick={() => deletPost(true)} ><i className="fa fa-trash" aria-hidden="true"></i>Delete</button>
+                        </div>
                     </footer>
                 </div>
             </div>
@@ -58,7 +70,6 @@ function PostDetail(props) {
 const mapDispatchToProps = dispatch => ({
     votePost: (vote, post) => dispatch(actions.post.votePost(vote, post)),
     editPost: post => dispatch(actions.post.editPost(post)) 
-
 })
 
-export default connect(null,mapDispatchToProps)(PostDetail)
+export default withRouter(connect(null, mapDispatchToProps)(PostDetail))
