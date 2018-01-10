@@ -4,35 +4,39 @@
   max-width: 600px;
   min-width: 200px;
   width: 100%; }
-  .comments-list h3 {
-    margin: 5px 0;
-    color: #adadad;
-    font-size: 22px; }
-  .comments-list .create-comment {
-    justify-content: center;
-    margin-bottom: 5px;
-    margin-top: 8px;
-    border: 2px solid #000;
-    border-radius: 5px;
-    padding: 10px;
-    background: #47bd4b;
-    text-decoration: none;
-    color: #000;
-    font-size: 16px;
-    font-weight: 600;
-    text-transform: uppercase; }
-    .comments-list .create-comment i {
-      margin-right: 8px; }
+  .comments-list .title-content {
+    display: flex;
+    width: 100%;
+    justify-content: space-between; }
+    .comments-list .title-content h3 {
+      margin: 5px 0;
+      color: #adadad;
+      font-size: 22px; }
+    .comments-list .title-content .create-comment {
+      flex-direction: row;
+      justify-content: flex-end;
+      margin-bottom: 12px;
+      margin-top: 8px;
+      text-decoration: none;
+      color: #007aff;
+      font-size: 16px;
+      font-weight: 600;
+      background: #fff;
+      border: none;
+      cursor: pointer;
+      text-align: right; }
+      .comments-list .title-content .create-comment i {
+        margin-right: 8px; }
   .comments-list .comment-item {
     display: flex;
     -ms-flex-direction: column;
     flex-direction: column;
-    border: 2px solid #000;
+    border-radius: 2px;
+    border: solid 1px #e1f2fd;
     padding: 10px 25px;
     margin: 5px auto;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
-    border-radius: 10px;
     width: 100%; }
     .comments-list .comment-item footer {
       display: flex;
@@ -44,49 +48,52 @@
         display: flex;
         margin-top: 10px; }
         .comments-list .comment-item footer .post-data h5 {
-          margin: 0 10px 0 0; }
+          margin: 0 20px 0 0; }
+        .comments-list .comment-item footer .post-data i {
+          font-size: 24px;
+          color: #4a4a4a;
+          margin-right: 10px; }
       .comments-list .comment-item footer .right-area {
         display: flex;
         align-items: center;
         margin-top: 10px;
         flex-wrap: wrap; }
         .comments-list .comment-item footer .right-area .score-area {
-          margin-right: 20px; }
+          margin-right: 20px;
+          display: flex;
+          align-items: center; }
           .comments-list .comment-item footer .right-area .score-area span {
-            font-size: 18px;
+            font-size: 19px;
             margin-right: 5px;
-            margin: 0 6px 0 2px; }
+            margin: 0 6px 0 3px; }
           .comments-list .comment-item footer .right-area .score-area i {
             margin: 0 5px;
-            font-size: 21px;
-            cursor: pointer; }
+            font-size: 24px;
+            cursor: pointer;
+            color: #4a4a4a; }
             .comments-list .comment-item footer .right-area .score-area i.fa-thumbs-up, .comments-list .comment-item footer .right-area .score-area i.fa-thumbs-down {
               cursor: default; }
             .comments-list .comment-item footer .right-area .score-area i.fa-star {
-              font-size: 17px;
               cursor: default;
-              color: #eabc14;
+              font-size: 20px;
               margin: 0; }
         .comments-list .comment-item footer .right-area .action-buttons {
           display: flex;
-          width: 160px;
-          justify-content: space-between; }
+          flex-wrap: wrap;
+          width: 125px;
+          justify-content: space-between;
+          margin-top: 20px; }
           .comments-list .comment-item footer .right-area .action-buttons button {
-            padding: 3px 10px;
-            border-radius: 8px;
-            font-size: 14px;
-            outline: none; }
-            .comments-list .comment-item footer .right-area .action-buttons button:hover {
-              opacity: 0.7;
-              outline: none;
-              cursor: pointer; }
+            background: #fff;
+            border: none;
+            cursor: pointer; }
             .comments-list .comment-item footer .right-area .action-buttons button.edit {
-              background: #f1fefc;
-              border: 2px solid #8fcabf; }
+              color: #007aff;
+              font-weight: 700; }
             .comments-list .comment-item footer .right-area .action-buttons button.delete {
-              background: #ffc2c2;
-              border: 2px solid #ff2f00; }
-            .comments-list .comment-item footer .right-area .action-buttons button i {
-              margin-right: 7px; }
+              color: #f22e54;
+              font-weight: 700; }
+            .comments-list .comment-item footer .right-area .action-buttons button:focus {
+              outline: none; }
 
 /*# sourceMappingURL=comment-list.css.map */

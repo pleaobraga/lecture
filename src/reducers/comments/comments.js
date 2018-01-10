@@ -25,7 +25,6 @@ const comments = function(state = {}, action) {
             index =_.findIndex(comments, comment => comment.id === action.comment.id )
             action.comment.voted = action.vote.split('Vote')[0]
             comments[index] = action.comment;
-            comments = sortListByAttribute(comments, 'voteScore')
             return {...state, comments}
 
         case constant.DELETE_COMMENT:

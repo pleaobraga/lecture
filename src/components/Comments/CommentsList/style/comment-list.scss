@@ -5,42 +5,49 @@
     min-width: 200px;
     width: 100%;
 
-    h3 {
-        margin: 5px 0;
-        color: #adadad;
-        font-size: 22px;
-    }
+    .title-content {
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
 
-
-    .create-comment {
-        justify-content: center;
-        margin-bottom: 5px;
-        margin-top: 8px;
-        border: 2px solid #000;
-        border-radius: 5px;
-        padding: 10px;
-        background: #47bd4b;
-        text-decoration: none;
-        color: #000;
-        font-size: 16px;
-        font-weight: 600;
-        text-transform: uppercase;
-
-        i {
-            margin-right: 8px;
+        h3 {
+            margin: 5px 0;
+            color: #adadad;
+            font-size: 22px;
+        }
+    
+        .create-comment {
+            flex-direction: row;
+            justify-content: flex-end;
+            margin-bottom: 12px;
+            margin-top: 8px;
+            text-decoration: none;
+            color: #007aff;
+            font-size: 16px;
+            font-weight: 600;
+            background: #fff;
+            border: none;
+            cursor: pointer;
+            text-align: right;
+    
+            i {
+                margin-right: 8px;
+            }
         }
     }
+
+    
 
     .comment-item{
         display: flex;
         -ms-flex-direction: column;
         flex-direction: column;
-        border: 2px solid #000;
+        border-radius: 2px;
+        border: solid 1px #e1f2fd;
         padding: 10px 25px;
         margin: 5px auto;
         -webkit-box-sizing: border-box;
         box-sizing: border-box;
-        border-radius: 10px;
         width: 100%;
 
         footer {
@@ -55,7 +62,13 @@
                 margin-top: 10px;
 
                 h5 {
-                    margin: 0 10px 0 0;
+                    margin: 0 20px 0 0;
+                }
+
+                i {
+                    font-size: 24px;
+                    color: #4a4a4a;
+                    margin-right: 10px;
                 }
             }
 
@@ -67,17 +80,20 @@
 
                 .score-area {
                     margin-right: 20px;
+                    display: flex;
+                    align-items: center;
 
                     span {
-                        font-size: 18px;
+                        font-size: 19px;
                         margin-right: 5px;
-                        margin: 0 6px 0 2px;
+                        margin: 0 6px 0 3px;
                     }
 
                     i {
                         margin: 0 5px;
-                        font-size: 21px; 
+                        font-size: 24px; 
                         cursor: pointer;
+                        color: #4a4a4a;
 
                         &.fa-thumbs-up,
                         &.fa-thumbs-down {
@@ -86,9 +102,9 @@
 
 
                         &.fa-star {
-                            font-size: 17px;
                             cursor: default;
-                            color: #eabc14;
+                            font-size: 20px;
+                            //color: #eabc14;
                             margin: 0;
                         }
                     }
@@ -96,35 +112,32 @@
 
                 .action-buttons {
                     display: flex;
-                    width: 160px;
+                    flex-wrap: wrap;
+                    width: 125px;
                     justify-content: space-between;
-
+                    margin-top: 20px;
+    
                     button {
-                        padding: 3px 10px;
-                        border-radius: 8px;
-                        font-size: 14px;                        outline: none;
+                        background: #fff;
+                        border: none;
+                        cursor: pointer;
     
-                        &:hover {
-                            opacity: 0.7;
-                            outline: none;
-                            cursor: pointer;
-                        }
-
                         &.edit {
-                            background: #f1fefc;
-                            border: 2px solid #8fcabf;
-
-                        }
-
-                        &.delete {
-                            background: #ffc2c2;
-                            border: 2px solid #ff2f00;
+                            color: #007aff;
+                            font-weight: 700;
+    
                         }
     
-                        i {
-                            margin-right: 7px
+                        &.delete {
+                            color: #f22e54;
+                            font-weight: 700;
+                        }
+            
+                        &:focus {
+                            outline: none;
                         }
                     }
+    
                 }
             }
         }

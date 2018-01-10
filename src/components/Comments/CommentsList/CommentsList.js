@@ -83,13 +83,11 @@ import { connect } from 'react-redux'
                             <button 
                                 className="edit" 
                                 onClick={() => this.addElementToCommentList(comment) } >
-                                <i className="fa fa-pencil" aria-hidden="true"></i>
                                 Edit
                             </button>
                             <button 
                                 className="delete"  
                                 onClick={() => this.deleteComent(comment.id) } >
-                                <i className="fa fa-trash" aria-hidden="true"></i>
                                 Delete
                             </button>
                         </div>
@@ -117,16 +115,19 @@ import { connect } from 'react-redux'
 
         return (
             <div className='comments-list' >
-                <h3>Comments</h3>
-                { 
-                    !this.state.createComment && 
-                    <button 
-                        className="create-comment"  
-                        onClick={() => this.setState({createComment: true}) } >
-                        <i className="fa fa-plus-circle" aria-hidden="true"></i>
-                        Create Comment
-                    </button>
-                }
+                <div className='title-content' >
+                    <h3>Comments</h3>
+                    { 
+                        !this.state.createComment && 
+                        <button 
+                            className="create-comment"  
+                            onClick={() => this.setState({createComment: true}) } >
+                            <i className="fa fa-plus" aria-hidden="true"></i>
+                            New Comment
+                        </button>
+                    }
+                </div>
+                
                 { 
                     this.state.createComment && 
                     <CommentsForm 
