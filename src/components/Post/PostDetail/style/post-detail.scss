@@ -14,21 +14,29 @@
         display: flex;
         flex-direction: column;
         width: 100%;
-        border: 2px solid #000;
+        border-radius: 2px;
+        border: solid 1px #e1f2fd;
         padding: 10px 25px;
         margin: auto;
         box-sizing: border-box;
-        border-radius: 10px;
     
         .header-post {
             display: flex;
             justify-content: space-around;
             align-items: center;
+            
+            i {
+                color: #4D4A55;
+            }
     
             h3 {
                 margin: 3px 0;
                 text-align: center;
             }
+        }
+
+        h1 {
+            color: #007aff;
         }
     
         .body{
@@ -36,21 +44,24 @@
         }
     
         .category{
-            padding:6px 8px 4px 8px;
-            width: 80px;
-            border-radius: 4px;
-            text-transform: uppercase;
-            font-size: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 90px;
+            border-radius: 2px;
+            font-size: 17px;
             font-weight: 700;
             color: white;
             text-align: center;
+            height: 40px;
+            
     
             &.react-category {
-                background: #61dafb;
+                background: #f22e54;
             }
     
             &.redux-category {
-                background: #785ebc;
+                background: #ff9a38;
             }
     
             &.udacity-category {
@@ -71,9 +82,9 @@
                 i {
                     margin-right: 4px;
                     font-size: 25px;
+                    color: #4D4A55;
         
                     &.fa-star {
-                        color: #eabc14;
                         margin-right: 2px;
                         font-size: 20px;
                         margin-left: 12px;
@@ -81,7 +92,7 @@
         
                     &.fa-thumbs-o-up, 
                     &.fa-thumbs-o-down {
-                        cursor: pointer
+                        cursor: pointer;
                     }
         
                     &.fa-thumbs-o-up,
@@ -100,34 +111,24 @@
             .action-buttons {
                 display: flex;
                 flex-wrap: wrap;
-                width: 260px;
+                width: 150px;
                 justify-content: space-between;
                 margin-top: 20px;
 
                 button {
-                    border-radius: 6px;
-                    text-transform: uppercase;
-                    font-weight: 700;
+                    background: #fff;
+                    border: none;
                     cursor: pointer;
-                    width: 120px;
-                    display: flex;
-                    justify-content: space-around;
-                    font-size: 15px;
-                    padding: 7px 8px;
 
                     &.edit {
-                        background: #f1fefc;
-                        border: 2px solid #8fcabf;
+                        color: #007aff;
+                        font-weight: 700;
 
                     }
 
                     &.delete {
-                        background: #ffc2c2;
-                        border: 2px solid #ff2f00;
-                    }
-        
-                    &:hover {
-                        background:  #a4c5d2;
+                        color: #f22e54;
+                        font-weight: 700;
                     }
         
                     &:focus {
@@ -136,8 +137,6 @@
                 }
 
             }
-    
-            
         }
     }
 

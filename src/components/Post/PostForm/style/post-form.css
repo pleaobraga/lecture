@@ -48,22 +48,25 @@
           font-size: 16px;
           width: 100px;
           display: block; }
-    .post-form form.form-content button {
-      border: none;
-      background: white;
-      color: #007aff;
-      cursor: pointer;
-      text-align: end;
-      font-weight: 700px;
-      margin-top: 17px;
-            /*&.submit {
-                background: #3fab3f;
-            }
-
-            &.reset {
-                background: #da2525;
-            }*/ }
-      .post-form form.form-content button:focus {
-        outline: none; }
+    .post-form form.form-content .action-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      max-width: 150px;
+      width: auto;
+      justify-content: space-between;
+      margin-top: 20px;
+      align-self: flex-end; }
+      .post-form form.form-content .action-buttons button {
+        background: #fff;
+        border: none;
+        cursor: pointer; }
+        .post-form form.form-content .action-buttons button.submit {
+          color: #007aff;
+          font-weight: 700; }
+        .post-form form.form-content .action-buttons button.reset {
+          color: #f22e54;
+          font-weight: 700; }
+        .post-form form.form-content .action-buttons button:focus {
+          outline: none; }
 
 /*# sourceMappingURL=post-form.css.map */

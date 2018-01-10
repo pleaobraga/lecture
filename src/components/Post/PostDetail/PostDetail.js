@@ -1,5 +1,5 @@
 import React from 'react'
-import { formateDate } from '../../../Utils/utils'
+import { formateDate, captalizeFirstLetter } from '../../../Utils/utils'
 import './style/post-detail.css'
 import { connect } from 'react-redux' 
 import { withRouter } from 'react-router-dom'
@@ -39,7 +39,7 @@ function PostDetail(props) {
                 <h3 className="title" >Post Detail</h3>
                 <div className="post-content" >
                     <div className="header-post" >
-                        <h3 className={`category ${category}-category`}>{category}</h3>
+                        <h3 className={`category ${category}-category`}>{captalizeFirstLetter(category)}</h3>
                         <h3 className='author'><i className="fa fa-user" aria-hidden="true"></i> {author}</h3>
                         <h3 className='date'><i className="fa fa-calendar" aria-hidden="true"></i> {formateDate(timestamp)}</h3>
                     </div>
@@ -63,14 +63,12 @@ function PostDetail(props) {
                             <button 
                                 className='edit' 
                                 onClick={() => props.editingPost(true)} >
-                                <i className="fa fa-pencil" aria-hidden="true"></i>
-                                Edit Post
+                                Edit
                             </button>
                             <button
                                 className="delete" 
                                 onClick={() => deletPost(true)} >
-                                <i className="fa fa-trash" aria-hidden="true"></i>
-                                Delete
+                                Remove
                             </button>
                         </div>
                     </footer>

@@ -10,33 +10,39 @@
     display: flex;
     flex-direction: column;
     width: 100%;
-    border: 2px solid #000;
+    border-radius: 2px;
+    border: solid 1px #e1f2fd;
     padding: 10px 25px;
     margin: auto;
-    box-sizing: border-box;
-    border-radius: 10px; }
+    box-sizing: border-box; }
     .post-detail .post-content .header-post {
       display: flex;
       justify-content: space-around;
       align-items: center; }
+      .post-detail .post-content .header-post i {
+        color: #4D4A55; }
       .post-detail .post-content .header-post h3 {
         margin: 3px 0;
         text-align: center; }
+    .post-detail .post-content h1 {
+      color: #007aff; }
     .post-detail .post-content .body {
       font-size: 19px; }
     .post-detail .post-content .category {
-      padding: 6px 8px 4px 8px;
-      width: 80px;
-      border-radius: 4px;
-      text-transform: uppercase;
-      font-size: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 90px;
+      border-radius: 2px;
+      font-size: 17px;
       font-weight: 700;
       color: white;
-      text-align: center; }
+      text-align: center;
+      height: 40px; }
       .post-detail .post-content .category.react-category {
-        background: #61dafb; }
+        background: #f22e54; }
       .post-detail .post-content .category.redux-category {
-        background: #785ebc; }
+        background: #ff9a38; }
       .post-detail .post-content .category.udacity-category {
         background: #03b3e4; }
     .post-detail .post-content footer {
@@ -47,9 +53,9 @@
         margin-top: 20px; }
         .post-detail .post-content footer .score-area i {
           margin-right: 4px;
-          font-size: 25px; }
+          font-size: 25px;
+          color: #4D4A55; }
           .post-detail .post-content footer .score-area i.fa-star {
-            color: #eabc14;
             margin-right: 2px;
             font-size: 20px;
             margin-left: 12px; }
@@ -63,27 +69,19 @@
       .post-detail .post-content footer .action-buttons {
         display: flex;
         flex-wrap: wrap;
-        width: 260px;
+        width: 150px;
         justify-content: space-between;
         margin-top: 20px; }
         .post-detail .post-content footer .action-buttons button {
-          border-radius: 6px;
-          text-transform: uppercase;
-          font-weight: 700;
-          cursor: pointer;
-          width: 120px;
-          display: flex;
-          justify-content: space-around;
-          font-size: 15px;
-          padding: 7px 8px; }
+          background: #fff;
+          border: none;
+          cursor: pointer; }
           .post-detail .post-content footer .action-buttons button.edit {
-            background: #f1fefc;
-            border: 2px solid #8fcabf; }
+            color: #007aff;
+            font-weight: 700; }
           .post-detail .post-content footer .action-buttons button.delete {
-            background: #ffc2c2;
-            border: 2px solid #ff2f00; }
-          .post-detail .post-content footer .action-buttons button:hover {
-            background: #a4c5d2; }
+            color: #f22e54;
+            font-weight: 700; }
           .post-detail .post-content footer .action-buttons button:focus {
             outline: none; }
 

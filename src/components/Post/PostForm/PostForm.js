@@ -164,11 +164,13 @@ export class PostForm extends Component {
                             value={body}
                             onChange={this.handleInputChange}  /> 
                     </div>
-                    <button  className='submit'  type="submit" >Submit</button>
-                    { 
-                        post && 
-                        <button className='reset' type='button'  onClick={() => editingPost(false)} >Cancel</button> 
-                    }               
+                    <div className='action-buttons' >
+                        <button  className='submit'  type="submit" >Submit</button>
+                        { 
+                            post && 
+                            <button className='reset' type='button'  onClick={() => editingPost(false)} >Cancel</button> 
+                        }   
+                    </div>                                
                 </form>
             </div>
         )

@@ -115,13 +115,15 @@ export class CommentsForm extends Component {
                             value={body}
                             onChange={this.handleInputChange}  /> 
                     </div>
-                    <button  className='submit'  type="submit" >Submit</button>
-                    <button 
-                        className='reset' 
-                        type='button' 
-                        onClick={() => cancel(comment)} >
-                        Cancel
-                    </button>               
+                    <div className='action-buttons' >
+                        <button  className='submit'  type="submit" >Submit</button>
+                        <button 
+                            className='reset' 
+                            type='button' 
+                            onClick={() => cancel(comment)} >
+                            Cancel
+                        </button>       
+                    </div>        
                 </form>
             </div>
         )

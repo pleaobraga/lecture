@@ -1,5 +1,4 @@
 .post-form {
-
     max-width: 600px;
     min-width: 200px;
     width: 100%;
@@ -72,27 +71,35 @@
             }
         }
 
-        button {
-            border: none;
-            background: white;
-            color: #007aff;
-            cursor: pointer;
-            text-align: end;
-            font-weight: 700px;
-            margin-top: 17px;
+        .action-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            max-width: 150px;
+            width: auto;
+            justify-content: space-between;
+            margin-top: 20px;
+            align-self: flex-end;
 
-            &:focus {
-                outline: none;
+            button {
+                background: #fff;
+                border: none;
+                cursor: pointer;
+
+                &.submit {
+                    color: #007aff;
+                    font-weight: 700;
+
+                }
+
+                &.reset {
+                    color: #f22e54;
+                    font-weight: 700;
+                }
+    
+                &:focus {
+                    outline: none;
+                }
             }
-
-            /*&.submit {
-                background: #3fab3f;
-            }
-
-            &.reset {
-                background: #da2525;
-            }*/
-
         }
     }
 }
