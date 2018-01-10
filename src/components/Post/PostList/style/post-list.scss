@@ -2,7 +2,7 @@
     display: flex;
     flex-direction: column;
     min-width: 200px;
-    max-width: 580px;
+    max-width: 600px;
     margin: auto;
     width: 100%;
     
@@ -14,11 +14,11 @@
     .post-item {
         flex-direction: row;
         justify-content: space-around;
-        border: 2px solid #000;
+        border-radius: 2px;
+        border: solid 1px #e1f2fd;
         margin-bottom: 10px;
         padding: 10px 0;
         cursor: pointer;
-        border-radius: 10px;
 
         &:hover{
            background: #e0dddd;
@@ -27,44 +27,97 @@
         .main-informations {
             flex-direction: column;
             justify-content: space-around;
-            width: 70%;
+            width: 60%;
 
             h3 {
                 margin: 0px 0;
+                color: #007aff;
             }
 
             .author-date-informations {
-
-                h5 {
-                    margin: 0 10px 0 0;
+                display: flex;
+                flex-wrap: wrap;
+                
+                .author, 
+                .date {
+                    display: flex;
+                    justify-content: start;
+                    align-items: center;
+                    width: 100%;
+                    max-width: 120px;
+                    font-family: 'Roboto';
+                    margin: 10px 0;
+                    
                 }
+
+                i {
+                    font-size: 24px;
+                    color: #4a4a4a;
+                    margin-right: 10px;
+                }
+
 
             }
         }
 
         .second-informations {
             flex-direction: column;
+            align-items: flex-end;
+            width: 22%;
 
             .category{
+                font-family: 'Roboto';
+                font-size: 15px;
+                font-weight: 500;
+                font-style: normal;
+                font-stretch: normal;
+                line-height: normal;
+                letter-spacing: normal;
+                text-align: left;
+                color: #ffffff;
                 margin: 2px 0px;
-                padding: 6px 0 4px 0;
-                width: 70px;
-                border-radius: 4px;
-                text-transform: uppercase;
-                font-size: 12px;
-                font-weight: 700;
                 color: white;
+                width: 74px;
+                height: 30px;
+                border-radius: 2px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
 
                 &.react-category {
-                    background: #61dafb;
+                    background: #f22e54;
                 }
 
                 &.redux-category {
-                    background: #785ebc;
+                    background: #ff9900;
                 }
 
                 &.udacity-category {
                     background: #03b3e4;
+                }
+            }
+
+            
+
+            .comments-stars {
+                display: flex;
+                flex-wrap: wrap;
+                width: 100%;
+                justify-content: space-between;
+
+                .comments, 
+                .score {
+                    font-family: 'Roboto';
+                    margin-top: 12px;
+                    display: flex;
+                    align-items: center;
+                    width: 50px;
+                    justify-content: space-around;
+                }
+
+                i {
+                    font-size: 24px;
+                    color: #4a4a4a;
                 }
             }
 

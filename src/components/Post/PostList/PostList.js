@@ -1,5 +1,5 @@
 import React  from 'react'
-import { formateDate } from '../../../Utils/utils'
+import { formateDate, captalizeFirstLetter } from '../../../Utils/utils'
 import { withRouter } from 'react-router-dom'
 import './style/post-list.css'
 
@@ -24,9 +24,11 @@ export function PostList(props) {
                         </div>
                     </div>
                     <div className='second-informations' >
-                        <span className='score' ><i className="fa fa-star" aria-hidden="true" style={{color: '#eabc14'}} ></i> {post.voteScore}</span>
-                        <span className={`category ${post.category}-category`}>{post.category}</span>
-                        <span className='comments'><i className="fa fa-comments" aria-hidden="true" style={{color: '#1d1dc1'}} ></i> {post.commentCount} </span>
+                        <span className={`category ${post.category}-category`}>{captalizeFirstLetter(post.category)}</span>
+                        <div className='comments-stars' >
+                            <span className='score' ><i className="fa fa-star" aria-hidden="true"></i> {post.voteScore}</span>
+                            <span className='comments'><i className="fa fa-comments" aria-hidden="true"></i> {post.commentCount}</span>
+                        </div>
                     </div>
                 </div>
             )

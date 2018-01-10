@@ -48,7 +48,8 @@
       .comments-list .comment-item footer .right-area {
         display: flex;
         align-items: center;
-        margin-top: 10px; }
+        margin-top: 10px;
+        flex-wrap: wrap; }
         .comments-list .comment-item footer .right-area .score-area {
           margin-right: 20px; }
           .comments-list .comment-item footer .right-area .score-area span {
@@ -66,18 +67,26 @@
               cursor: default;
               color: #eabc14;
               margin: 0; }
-        .comments-list .comment-item footer .right-area button {
-          padding: 3px 8px;
-          border: 2px solid #2482c5;
-          border-radius: 8px;
-          font-size: 14px;
-          background: #2482c5;
-          outline: none; }
-          .comments-list .comment-item footer .right-area button:hover {
-            opacity: 0.7;
-            outline: none;
-            cursor: pointer; }
-          .comments-list .comment-item footer .right-area button i {
-            margin-right: 7px; }
+        .comments-list .comment-item footer .right-area .action-buttons {
+          display: flex;
+          width: 160px;
+          justify-content: space-between; }
+          .comments-list .comment-item footer .right-area .action-buttons button {
+            padding: 3px 10px;
+            border-radius: 8px;
+            font-size: 14px;
+            outline: none; }
+            .comments-list .comment-item footer .right-area .action-buttons button:hover {
+              opacity: 0.7;
+              outline: none;
+              cursor: pointer; }
+            .comments-list .comment-item footer .right-area .action-buttons button.edit {
+              background: #f1fefc;
+              border: 2px solid #8fcabf; }
+            .comments-list .comment-item footer .right-area .action-buttons button.delete {
+              background: #ffc2c2;
+              border: 2px solid #ff2f00; }
+            .comments-list .comment-item footer .right-area .action-buttons button i {
+              margin-right: 7px; }
 
 /*# sourceMappingURL=comment-list.css.map */

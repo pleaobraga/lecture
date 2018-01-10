@@ -34,7 +34,8 @@ export const getAllPosts = () => dispatch => {
         .then(response => {
             dispatch(getAllPostsSuccess(response.data))
             return response.data
-        });
+        })
+        .catch( error => console.log(error))
 }
 
 export const getFilteredPosts = (category) => dispatch =>  {
@@ -43,6 +44,7 @@ export const getFilteredPosts = (category) => dispatch =>  {
             dispatch(getAllFilteredPostsSuccess(response.data, category))
             return response.data
         })
+        .catch( error => console.log(error))
 }
 
 export const getPostDetail = (idPost) => dispatch => {
@@ -51,6 +53,7 @@ export const getPostDetail = (idPost) => dispatch => {
             dispatch(getPostDetailSuccess(response.data))
             return response.data
         })
+        .catch( error => console.log(error))
 }
 
 export const editPost = (post) => dispatch => {
@@ -59,6 +62,7 @@ export const editPost = (post) => dispatch => {
             dispatch(editPostSuccess(response.data))
             return response.data
         })
+        .catch( error => console.log(error))
 }
 
 export const votePost = (vote, post) => dispatch =>  {
@@ -68,5 +72,6 @@ export const votePost = (vote, post) => dispatch =>  {
             response.data.voted = vote.split('Vote')[0]
             return response.data
         })
+        .catch( error => console.log(error))
 } 
 

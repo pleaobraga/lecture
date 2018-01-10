@@ -1,12 +1,12 @@
 import * as constant from './constants'
 import axios from 'axios'
 
-//config requisition
+//config Request
 export const config = {
     headers: { Authorization: constant.AUTORIZATION }
 }
 
-//category requisitions
+//category Request
 export const getCategory = () => {
     return axios.get(`${constant.URL_BASE}/categories`, config);
 }
@@ -16,7 +16,7 @@ export const getCategoryPosts = category => {
 }
 
 
-//Post requisitions
+//Post Request
 export const getAllPost = () => {
     return axios.get(`${constant.URL_BASE}/posts`, config);
 }
@@ -42,7 +42,7 @@ export const deletePost = idPost => {
 }
 
 
-//Comment requisitions
+//Comment Request
 export const getPostComments = idPost => {
     return axios.get(`${constant.URL_BASE}/posts/${idPost}/comments`, config);
 }

@@ -11,9 +11,7 @@ export class PostView extends Component {
 
     constructor() {
         super();
-        this.state = {
-            editPost: false
-        }
+        this.state = { editPost: false }
     }
 
     componentDidMount() {
@@ -28,7 +26,9 @@ export class PostView extends Component {
     }
 
     renderPostComponent(post, editingPost) {
-        return !this.state.editPost ? <PostDetail post={post} editingPost={editingPost.bind(this)} /> : <PostForm post={post} editingPost={editingPost.bind(this)} />
+        return !this.state.editPost ? 
+            <PostDetail post={post} editingPost={editingPost.bind(this)} /> 
+            : <PostForm post={post} editingPost={editingPost.bind(this)} />
     }
 
     render() {
@@ -37,7 +37,10 @@ export class PostView extends Component {
 
         return (
             <div className="post-view" >
-                <Link to={`/`} className='back-home'><i className="fa fa-chevron-left" aria-hidden="true"></i> Back to post list</Link>
+                <Link to={`/`} className='back-home'>
+                    <i className="fa fa-chevron-left" aria-hidden="true"></i> 
+                    Back to post list
+                </Link>
                 {this.renderPostComponent(post, this.editingPost)}
                 <CommentsList comments={comments} idPost={idPost} />
             </div>

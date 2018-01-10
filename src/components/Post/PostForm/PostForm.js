@@ -58,7 +58,7 @@ export class PostForm extends Component {
         let { post } = this.state
 
         if(this.props.post) {
-            
+            //case post was not modify and press submit button dont call the api 
             _.isEqual(this.props.post, post) ? this.props.editingPost(false) : this.editPost(post)
             
         } else {
@@ -75,6 +75,7 @@ export class PostForm extends Component {
 
         const { post } = this.props 
 
+        //certify the post recieve from props will not update the atual post
         if(post) {
             const copyCorrentPost = Object.assign({}, post);
             this.setState({currentPost: post, post: copyCorrentPost})
@@ -86,6 +87,9 @@ export class PostForm extends Component {
             .then( response => {
                 this.setState({ categories: response.data.categories})  
             })
+            .catch(error => {
+                console.log(error)
+            }) 
     }
 
     createPost(post) {
@@ -161,7 +165,10 @@ export class PostForm extends Component {
                             onChange={this.handleInputChange}  /> 
                     </div>
                     <button  className='submit'  type="submit" >Submit</button>
-                            { post && <button className='reset' type='button'  onClick={() => editingPost(false)} >Cancel</button> }               
+                    { 
+                        post && 
+                        <button className='reset' type='button'  onClick={() => editingPost(false)} >Cancel</button> 
+                    }               
                 </form>
             </div>
         )

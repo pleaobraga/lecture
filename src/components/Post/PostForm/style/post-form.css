@@ -10,11 +10,11 @@
     display: flex;
     flex-direction: column;
     width: 100%;
-    border: 2px solid #000;
+    border-radius: 2px;
+    border: solid 1px #e1f2fd;
     padding: 10px 25px;
     margin: auto;
-    box-sizing: border-box;
-    border-radius: 10px; }
+    box-sizing: border-box; }
     .post-form form.form-content div {
       display: flex;
       justify-content: space-between; }
@@ -33,37 +33,29 @@
         .post-form form.form-content div.row select {
           height: 35px;
           width: 90px;
-          padding-left: 7px; }
-        .post-form form.form-content div.row input,
+          padding-left: 7px;
+          background: #fff; }
         .post-form form.form-content div.row textarea {
+          padding: 0 15px; }
+        .post-form form.form-content div.row input,
+        .post-form form.form-content div.row textarea,
+        .post-form form.form-content div.row select {
           flex: 1;
           width: 100%;
-          border: 1px solid #000; }
+          border-radius: 2px;
+          border: solid 1px #e1f2fd; }
         .post-form form.form-content div.row label {
-          font-family: "Times New Roman";
-          font-size: 19px;
-          font-weight: 600;
+          font-size: 16px;
           width: 100px;
           display: block; }
     .post-form form.form-content button {
-      font-family: sans-serif;
-      font-size: 100%;
-      line-height: 1.15;
-      margin: 0;
-      color: white;
-      height: 35px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-decoration: none;
-      text-transform: uppercase;
-      font-weight: 600;
-      margin: 4px 0;
-      border: 2px solid #000;
-      border-radius: 5px;
+      border: none;
       background: white;
-      color: #000;
+      color: #007aff;
       cursor: pointer;
+      text-align: end;
+      font-weight: 700px;
+      margin-top: 17px;
             /*&.submit {
                 background: #3fab3f;
             }

@@ -43,6 +43,10 @@ import { connect } from 'react-redux'
                 .catch(erro => console.log(erro))
     }
 
+    deleteComent(comment) {
+        this.props.deleteComment(comment)
+    }
+
     renderComment (comment) {
         let {
               id,
@@ -53,7 +57,7 @@ import { connect } from 'react-redux'
             } = comment
         
         return(
-            <div key={id} id={id} className="comment-item"  >
+            <div key={id} id={id} className="comment-item">
                 <p className='body'>{body}</p>
                 <footer>
                     <div className="post-data" >
@@ -67,19 +71,35 @@ import { connect } from 'react-redux'
                             <i 
                                 onClick={() => this.voteOnComment('upVote',comment)} 
                                 className={`fa fa-thumbs${comment.voted && comment.voted === 'up' ? '' : '-o'}-up`} 
-                                aria-hidden="true"></i>
+                                aria-hidden="true">
+                            </i>
                             <i 
                                 onClick={ () => this.voteOnComment('downVote',comment)} 
                                 className={`fa fa-thumbs${comment.voted && comment.voted === 'down' ? '' : '-o'}-down`} 
-                                aria-hidden="true"></i>
+                                aria-hidden="true">
+                            </i>
                         </div>
-                        <button onClick={() => this.addElementToCommentList(comment) } ><i className="fa fa-pencil" aria-hidden="true"></i>Edit Comment</button>
+                        <div className='action-buttons' >
+                            <button 
+                                className="edit" 
+                                onClick={() => this.addElementToCommentList(comment) } >
+                                <i className="fa fa-pencil" aria-hidden="true"></i>
+                                Edit
+                            </button>
+                            <button 
+                                className="delete"  
+                                onClick={() => this.deleteComent(comment.id) } >
+                                <i className="fa fa-trash" aria-hidden="true"></i>
+                                Delete
+                            </button>
+                        </div>
                     </div>
                 </footer>
             </div>
         )
     }
 
+    //render form case edit button were clicked
     renderCommentsItems (comments = []) {
         return comments.map(comment => {
             return this.state.editCommentList.indexOf(comment.id) === -1  ? 
@@ -121,7 +141,8 @@ import { connect } from 'react-redux'
 
 const mapDispatchToProps = dispatch => ({
     voteComment: (vote, comment) => dispatch(actions.comments.voteComment(vote, comment)),
-    editComment: (comment) => dispatch(actions.comments.editComment(comment)),
+    editComment: comment => dispatch(actions.comments.editComment(comment)),
+    deleteComment: comment => dispatch(actions.comments.deleteComment(comment))
 })
 
 export default connect(null, mapDispatchToProps)(CommentsList)

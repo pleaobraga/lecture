@@ -51,9 +51,8 @@ export class CommentsForm extends Component {
         let { comment } = this.state
 
         if(this.props.comment) {
-            
+            //case comment was not modify and press submit button dont call the api 
             _.isEqual(this.props.comment, comment) ? this.props.cancel(comment) : this.editComment(comment)
-            
         } else {
             comment.timestamp = new Date().getTime()
             comment.id = uuidv1()
@@ -67,6 +66,7 @@ export class CommentsForm extends Component {
     componentDidMount() {
         const { comment } = this.props 
 
+        //certify the comment recieve from props will not update the atual comment
         if(comment) {
             const copyCorrentComment = Object.assign({}, comment);
             this.setState({currentComment: comment, comment: copyCorrentComment})
@@ -88,10 +88,9 @@ export class CommentsForm extends Component {
             .then(response => {
                 this.props.cancel(comment)
             })
-    }
-
-    backToHomePage() {
-        this.props.history.push(`/`);
+            .catch(error => {
+                console.log(error)
+            })
     }
 
 
@@ -117,7 +116,12 @@ export class CommentsForm extends Component {
                             onChange={this.handleInputChange}  /> 
                     </div>
                     <button  className='submit'  type="submit" >Submit</button>
-                    <button className='reset' type='button'  onClick={() => cancel(comment)} >Cancel</button>               
+                    <button 
+                        className='reset' 
+                        type='button' 
+                        onClick={() => cancel(comment)} >
+                        Cancel
+                    </button>               
                 </form>
             </div>
         )

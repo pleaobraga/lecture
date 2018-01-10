@@ -7,7 +7,10 @@ export class CreatePost extends Component {
     render() {
         return (
             <div className='create-post' >
-                <Link to={`/`} className='back-home'><i className="fa fa-chevron-left" aria-hidden="true"></i> Back to post list</Link>
+                <Link to={`/`} className='back-home'>
+                    <i className="fa fa-chevron-left" aria-hidden="true"></i> 
+                    Back to post list
+                </Link>
                 <PostForm />
             </div>
         )

@@ -10,30 +10,32 @@ import './style/home.css';
 export class Home extends Component {
 
   componentDidMount() {
-    this.props.getAllPosts()
+      this.props.getAllPosts()
   }
   
-  render() {
+    render() {
+        let posts = this.props.posts ? this.props.posts : [] 
 
-    let posts = this.props.posts ? this.props.posts : [] 
-
-    return (
-      <div className="home">
-        <h1> Lecture </h1>
-        <Category />
-        <Link className='create-post' to='/create-post' ><i className="fa fa-plus-circle" aria-hidden="true"></i>Create New Post</Link>
-        <PostList posts={posts} />
-      </div>
-    );
-  }
+        return (
+          <div className="home">
+              <h1> Lecture </h1>
+              <Category />
+              <Link className='create-post' to='/create-post' >
+                  <i className="fa fa-plus" aria-hidden="true"></i>
+                  New Post
+              </Link>
+              <PostList posts={posts} />
+          </div>
+        );
+    }
 }
 
 const mapStateToProps = state => ({
-  posts: state.post.posts,
+    posts: state.post.posts,
 })
 
 const mapDispatchToProps = dispatch => ({
-  getAllPosts: () => dispatch(actions.post.getAllPosts()),
+    getAllPosts: () => dispatch(actions.post.getAllPosts()),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home);

@@ -47,14 +47,31 @@ function PostDetail(props) {
                     <p className='body'>{body}</p>
                     <footer>
                         <div className='score-area'>
-                            <i className={`fa fa-thumbs${props.post.voted && props.post.voted === 'up' ? '' : '-o'  }-up`} id='post-vote-up' aria-hidden="true" onClick={() => voteOnPost('upVote', props.post)} ></i>
-                            <i className={`fa fa-thumbs${props.post.voted && props.post.voted === 'down' ? '' : '-o'  }-down`} id='post-vote-down' aria-hidden="true" onClick={() => voteOnPost('downVote', props.post)} ></i>
+                            <i 
+                                className={`fa fa-thumbs${props.post.voted && props.post.voted === 'up' ? '' : '-o'  }-up`}  
+                                aria-hidden="true" 
+                                onClick={() => voteOnPost('upVote', props.post)} >
+                            </i>
+                            <i className={`fa fa-thumbs${props.post.voted && props.post.voted === 'down' ? '' : '-o'  }-down`}
+                                aria-hidden="true" 
+                                onClick={() => voteOnPost('downVote', props.post)} >
+                            </i>
                             <i className="fa fa-star" aria-hidden="true" ></i>
                             <span className="score" >{voteScore}</span>
                         </div>
                         <div className='action-buttons' >
-                            <button onClick={() => props.editingPost(true)} ><i className="fa fa-pencil" aria-hidden="true"></i>Edit Post</button>
-                            <button onClick={() => deletPost(true)} ><i className="fa fa-trash" aria-hidden="true"></i>Delete</button>
+                            <button 
+                                className='edit' 
+                                onClick={() => props.editingPost(true)} >
+                                <i className="fa fa-pencil" aria-hidden="true"></i>
+                                Edit Post
+                            </button>
+                            <button
+                                className="delete" 
+                                onClick={() => deletPost(true)} >
+                                <i className="fa fa-trash" aria-hidden="true"></i>
+                                Delete
+                            </button>
                         </div>
                     </footer>
                 </div>

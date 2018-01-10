@@ -33,6 +33,7 @@ export const getPostComments = idPost => dispatch => {
             dispatch(getPostCommentsSuccess(response.data))
             return response.data
         })
+        .catch( error => console.log(error))
 }
 
 export const editComment = comment => dispatch => {
@@ -41,6 +42,7 @@ export const editComment = comment => dispatch => {
             dispatch(editCommentSuccess(response.data))
             return response.data
         })
+        .catch( error => console.log(error))
 }
 
 export const createComment = comment => dispatch => {
@@ -49,6 +51,7 @@ export const createComment = comment => dispatch => {
             dispatch(createCommentSuccess(response.data))
             return response.data
         })
+        .catch( error => console.log(error))
 }
 
 export const voteComment = (vote, comment) => dispatch => {
@@ -58,11 +61,14 @@ export const voteComment = (vote, comment) => dispatch => {
             response.data.voted = vote.split('Vote')[0]
             return response.data
         })
+        .catch( error => console.log(error))
 }
 
-/*export const deleteComment = idComment => dispatch => {
+export const deleteComment = idComment => dispatch => {
     return api.deleteComment(idComment)
-        .then(reponse => {
-            dispatch
+        .then(response => {
+            dispatch(deleteCommentSuccess(response.data))
+            return response.data
         })
-}*/
+        .catch( error => console.log(error))
+}

@@ -11,3 +11,7 @@ export const formateDate = date => {
 export const sortListByAttribute = (list = [] , attribute) => {
     return list.sort((a, b) => b[attribute]-a[attribute] )
 }
+
+export const captalizeFirstLetter = string => {
+    return `${string[0].toUpperCase()}${string.substring(1,string.length)}` 
+}

@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import * as api from '../../Utils/apiUtils'
+import { captalizeFirstLetter } from '../../Utils/utils'
 import './style/category.css'
 import { connect } from 'react-redux'
 import * as actions from '../../actions'
@@ -29,12 +30,16 @@ export class Category extends Component {
         this.props.getCategoryPosts(category)
     }
 
-    rendeCategory(categories) {
+    renderCategory(categories, filteredCategory = '') {
         return categories.map((category, index) => {
             return (
-                <li key={index} id={`category-${index}`} onClick={() => this.filteredPostsByCategory(category.name)} >
-                    <Link to={`/${category.name}/posts`} className={`${category.name}-category`} >
-                        {category.name}
+                <li 
+                    key={index} id={`category-${index}`} 
+                    onClick={() => this.filteredPostsByCategory(category.name)} >
+                    <Link 
+                        to={`/${category.name}/posts`} 
+                        className={`${category.name}-category ${filteredCategory === category.name ? 'selected' : '' }`} >
+                        {captalizeFirstLetter(category.name)}
                     </Link>   
                 </li>
             )
@@ -52,21 +57,24 @@ export class Category extends Component {
     }
 
     render() {
-
-        const { categories } = this.state;
-        let { removeFilter } = this.props
+        const { categories } = this.state
+        let { removeFilter, filteredCategory } = this.props
 
         return (
-            <ul className='horizontal-list'>
-                {this.rendeCategory(categories)}
-                {removeFilter && this.renderRemoveFilterButton()}
-            </ul>
+            <div>
+                <ul className='horizontal-list'>
+                    {this.renderCategory(categories, filteredCategory)}
+                    {removeFilter && this.renderRemoveFilterButton()}
+                </ul>
+                <h5 className='filter-explain' >Click to filter by</h5>
+            </div>
+            
         )
     }
 } 
 
 const mapDispatchToProps = dispatch => ({
     getCategoryPosts: (category) => dispatch(actions.post.getFilteredPosts(category))
-  })
+})
 
 export default connect(null, mapDispatchToProps)(Category);

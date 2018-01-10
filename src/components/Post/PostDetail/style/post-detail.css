@@ -67,8 +67,6 @@
         justify-content: space-between;
         margin-top: 20px; }
         .post-detail .post-content footer .action-buttons button {
-          background: #f1fffc;
-          border: 2px solid #8fcabf;
           border-radius: 6px;
           text-transform: uppercase;
           font-weight: 700;
@@ -78,6 +76,12 @@
           justify-content: space-around;
           font-size: 15px;
           padding: 7px 8px; }
+          .post-detail .post-content footer .action-buttons button.edit {
+            background: #f1fefc;
+            border: 2px solid #8fcabf; }
+          .post-detail .post-content footer .action-buttons button.delete {
+            background: #ffc2c2;
+            border: 2px solid #ff2f00; }
           .post-detail .post-content footer .action-buttons button:hover {
             background: #a4c5d2; }
           .post-detail .post-content footer .action-buttons button:focus {
