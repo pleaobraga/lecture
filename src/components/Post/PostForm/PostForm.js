@@ -131,7 +131,7 @@ export class PostForm extends Component {
             <div className='post-form' >
                 <h3 className='title' >Post Form</h3>
                 <form className='form-content' onSubmit={this.handleSubmit} >
-                    <div className='row' >
+                    <div className='row error' >
                         <label>Title</label>
                         <input 
                             className='title'
@@ -140,7 +140,7 @@ export class PostForm extends Component {
                             onChange={this.handleInputChange}  />
                     </div>
                     <div className='two-proprieties row' >
-                        <div>
+                        <div className='error' >
                             <label>Author</label>
                             <input 
                                 name="author"
@@ -157,7 +157,7 @@ export class PostForm extends Component {
                             </select>
                         </div>
                     </div>
-                    <div className='row' >
+                    <div className='row error' >
                         <label>Body</label>
                         <textarea 
                             name="body"
