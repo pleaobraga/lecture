@@ -4,11 +4,12 @@ import _ from 'lodash'
 
 const comments = function(state = {}, action) {
     let { comments } = state,
-        index
+        index,
+        activatedComments
 
     switch(action.type) {
         case constant.GET_POST_COMMENTS: 
-            let activatedComments = action.comments.filter(comment => comment.deleted === false)
+            activatedComments = action.comments.filter(comment => comment.deleted === false)
             activatedComments = sortListByAttribute(activatedComments, 'voteScore')
             return {...state, comments: activatedComments}
         
@@ -30,6 +31,7 @@ const comments = function(state = {}, action) {
         case constant.DELETE_COMMENT:
             index =_.findIndex(comments, comment => comment.id === action.comment.id )
             comments[index] = action.comment;
+            activatedComments = comments.filter(comment => comment.deleted === false)
             activatedComments = sortListByAttribute(activatedComments, 'voteScore')
             return {...state, comments: activatedComments}
 
