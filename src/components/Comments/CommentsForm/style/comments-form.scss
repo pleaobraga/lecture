@@ -25,16 +25,24 @@
 
             &.row {
 
-                margin: 5px 0;
+                margin: 5px 0 20px 0;
                 align-items: center;
+                position: relative;
 
-                &.two-proprieties {
-                    flex-wrap: wrap;
-                    margin: 0;
+                &.error {
+                    &:before {
+                        content: 'Required field';
+                        position: absolute;
+                        color: red;
+                        bottom: -17px;
+                        left: 100px;
+                        font-size: 12px;
+                    }
 
-                    > div {
-                        margin: 5px 0;
-                        align-items: center;
+                    input,
+                    textarea {
+                        border-color: red;
+                        outline: none;
                     }
                 }
 

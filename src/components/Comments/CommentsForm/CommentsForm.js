@@ -28,6 +28,11 @@ export class CommentsForm extends Component {
                 voteScore: '',
                 deleted: false
             },
+            emptyField: { 
+                author: true, 
+                body: true 
+            },
+            submited: false
         }
 
         this.handleInputChange = this.handleInputChange.bind(this);
@@ -43,12 +48,16 @@ export class CommentsForm extends Component {
         comment[name] = value
     
         this.setState({comment});
+
+        this.setCommentFields(comment)
     }
     
     handleSubmit(event) {
         event.preventDefault();
     
-        let { comment } = this.state
+        let { comment, submited } = this.state
+
+        submited === false ? this.setState({submited: true}) : ''
 
         if(this.props.comment) {
             //case comment was not modify and press submit button dont call the api 
@@ -69,47 +78,73 @@ export class CommentsForm extends Component {
         //certify the comment recieve from props will not update the atual comment
         if(comment) {
             const copyCorrentComment = Object.assign({}, comment);
-            this.setState({currentComment: comment, comment: copyCorrentComment})
+            this.setState({currentComment: comment, comment: copyCorrentComment, submited: true})
+            this.setCommentFields(comment)
         }
     }
 
     createComment(comment) {
-        this.props.createComment(comment)
-            .then(() => {  
-                this.props.cancel(comment)
-            })
-            .catch(error => {
-                console.log(error)
-            }) 
+        if(!this.hasCommentFiedsError()) 
+            this.props.createComment(comment)
+                .then(() => {  
+                    this.props.cancel(comment)
+                })
+                .catch(error => {
+                    console.log(error)
+                }) 
     }
 
     editComment(comment) {
-        this.props.editComment(comment)
-            .then(response => {
-                this.props.cancel(comment)
-            })
-            .catch(error => {
-                console.log(error)
-            })
+        if(!this.hasCommentFiedsError()) 
+            this.props.editComment(comment)
+                .then(response => {
+                    this.props.cancel(comment)
+                })
+                .catch(error => {
+                    console.log(error)
+                })
+    }
+
+    setCommentFields(post) {
+
+        let { emptyField } = this.state
+
+        emptyField.author = post.author.length === 0  ? true  : false
+        emptyField.body = post.body.length === 0 ? true  : false
+        
+        this.setState({emptyField})
+    }
+
+    hasCommentFiedsError() {
+        const { emptyField } = this.state
+        let hasError = false 
+        
+        _.forIn(emptyField, (value, key) => {
+            if(value === true) hasError = true 
+        })
+
+        return hasError
     }
 
 
     render() {
         let { body, author } = this.state.comment,
-            { comment, cancel } = this.props 
+            { comment, cancel } = this.props,
+            { emptyField, submited } = this.state
+ 
 
         return (
             <div className='comments-form' >
                 <form className='form-content' onSubmit={this.handleSubmit} >
-                    <div className='row' >
+                    <div className={`row ${emptyField.author && submited ? 'error' : '' }`} >
                         <label>Author</label>
                         <input 
                             name="author"
                             value={author}
                             onChange={this.handleInputChange}  /> 
                     </div>
-                    <div className='row' >
-                        <label>Body</label>
+                    <div className={`row ${emptyField.body && submited ? 'error' : '' }`} >
+                        <label>Content</label>
                         <textarea 
                             name="body"
                             value={body}

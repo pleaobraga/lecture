@@ -63,9 +63,9 @@ export class PostForm extends Component {
     handleSubmit(event) {
         event.preventDefault();
     
-        let { post } = this.state
+        let { post, submited } = this.state
 
-        this.setState({submited: true})
+        submited === false ? this.setState({submited: true}) : ''
 
         if(this.props.post) {
             //case post was not modify and press submit button dont call the api 
@@ -104,14 +104,15 @@ export class PostForm extends Component {
     }
 
     createPost(post) {
-        api.createNewPost(post)
-            .then(respose => {  
-                this.backToHomePage()
-                return Response.data
-            })
-            .catch(error => {
-                console.log(error)
-            }) 
+        if(!this.hasPostFiedsError()) 
+            api.createNewPost(post)
+                .then(respose => {  
+                    this.backToHomePage()
+                    return Response.data
+                })
+                .catch(error => {
+                    console.log(error)
+                }) 
     }
 
     editPost(post) {

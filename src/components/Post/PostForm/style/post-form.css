@@ -31,7 +31,8 @@
           font-size: 12px; }
         .post-form form.form-content div.row.error input,
         .post-form form.form-content div.row.error textarea {
-          border-color: red; }
+          border-color: red;
+          outline: none; }
         .post-form form.form-content div.row .error:before {
           content: 'Required field';
           position: absolute;
@@ -39,9 +40,9 @@
           bottom: 0px;
           left: 100px;
           font-size: 12px; }
-        .post-form form.form-content div.row .error input,
-        .post-form form.form-content div.row .error textarea {
-          border-color: red; }
+        .post-form form.form-content div.row .error input {
+          border-color: red;
+          outline: none; }
         .post-form form.form-content div.row h5 {
           color: red;
           margin: 3px 0; }

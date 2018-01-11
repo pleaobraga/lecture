@@ -42,6 +42,7 @@
                     input,
                     textarea {
                         border-color: red;
+                        outline: none;
                     }
                 }
 
@@ -55,9 +56,9 @@
                         font-size: 12px;
                     }
 
-                    input,
-                    textarea {
+                    input {
                         border-color: red;
+                        outline: none;
                     }
                 }
 
