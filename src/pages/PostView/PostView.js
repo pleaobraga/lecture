@@ -50,9 +50,9 @@ export class PostView extends Component {
 } 
 
 
-const mapStateToProps = state => ({
-    post: state.post.postDetail,
-    comments: state.comments.comments
+const mapStateToProps = ({ post, comments }) => ({
+    post: post.postDetail,
+    comments: comments.comments
 })
 
 const mapDispatchToProps = dispatch => ({

@@ -30,8 +30,8 @@ export class Home extends Component {
     }
 }
 
-const mapStateToProps = state => ({
-    posts: state.post.posts,
+const mapStateToProps = ({post}) => ({
+    posts: post.posts
 })
 
 const mapDispatchToProps = dispatch => ({
