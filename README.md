@@ -8,4 +8,4 @@ to start the application run npm start
 
 ## Api
 
-The api server was made by Udacity  and you can see it on https://github.com/udacity/reactnd-project-readable-starter
+The api server was made by Udacity  and you can check it on https://github.com/udacity/reactnd-project-readable-starter
