@@ -29,9 +29,9 @@
                 align-items: center;
                 position: relative;
 
-                &.error, .error {
+                &.error {
                     &:before {
-                        content: 'Campo Obrigat\F3rio';
+                        content: 'Required field';
                         position: absolute;
                         color: red;
                         bottom: -17px;

@@ -34,7 +34,13 @@ export class PostForm extends Component {
                 deleted: false,
                 commentCount: ''
             },
-            categories: []
+            emptyField: { 
+                title: true, 
+                author: true, 
+                body: true 
+            },
+            categories: [],
+            submited: false
         }
 
         this.handleInputChange = this.handleInputChange.bind(this);
@@ -50,12 +56,16 @@ export class PostForm extends Component {
         post[name] = value
     
         this.setState({post});
+
+        this.setPostFields(post)
     }
     
     handleSubmit(event) {
         event.preventDefault();
     
         let { post } = this.state
+
+        this.setState({submited: true})
 
         if(this.props.post) {
             //case post was not modify and press submit button dont call the api 
@@ -78,7 +88,8 @@ export class PostForm extends Component {
         //certify the post recieve from props will not update the atual post
         if(post) {
             const copyCorrentPost = Object.assign({}, post);
-            this.setState({currentPost: post, post: copyCorrentPost})
+            this.setState({currentPost: post, post: copyCorrentPost, submited: true })
+            this.setPostFields(post)
         }
     }
 
@@ -104,13 +115,36 @@ export class PostForm extends Component {
     }
 
     editPost(post) {
-        this.props.editPost(post)
-            .then(response => { 
-                this.props.editingPost(false)
-            })
-            .catch(error => {
-                console.log(error)
-            })
+        if(!this.hasPostFiedsError()) 
+            this.props.editPost(post)
+                .then(response => { 
+                    this.props.editingPost(false)
+                })
+                .catch(error => {
+                    console.log(error)
+                })
+    }
+
+    setPostFields(post) {
+
+        let { emptyField } = this.state
+
+        emptyField.title = post.title.length === 0 ? true  : false
+        emptyField.author = post.author.length === 0  ? true  : false
+        emptyField.body = post.body.length === 0 ? true  : false
+        
+        this.setState({emptyField})
+    }
+
+    hasPostFiedsError() {
+        const { emptyField } = this.state
+        let hasError = false 
+        
+        _.forIn(emptyField, (value, key) => {
+            if(value === true) hasError = true 
+        })
+
+        return hasError
     }
 
     backToHomePage() {
@@ -119,7 +153,7 @@ export class PostForm extends Component {
 
     render() {
 
-        let { categories } = this.state,
+        let { categories, emptyField, submited } = this.state,
             { 
               title,
               body,
@@ -131,7 +165,7 @@ export class PostForm extends Component {
             <div className='post-form' >
                 <h3 className='title' >Post Form</h3>
                 <form className='form-content' onSubmit={this.handleSubmit} >
-                    <div className='row error' >
+                    <div className={`row ${emptyField.title && submited ? 'error' : '' }`} >
                         <label>Title</label>
                         <input 
                             className='title'
@@ -140,7 +174,7 @@ export class PostForm extends Component {
                             onChange={this.handleInputChange}  />
                     </div>
                     <div className='two-proprieties row' >
-                        <div className='error' >
+                        <div className={emptyField.author && submited ? 'error' : ''} >
                             <label>Author</label>
                             <input 
                                 name="author"
@@ -157,8 +191,8 @@ export class PostForm extends Component {
                             </select>
                         </div>
                     </div>
-                    <div className='row error' >
-                        <label>Body</label>
+                    <div className={`row ${emptyField.body && submited ? 'error' : '' }`} >
+                        <label>Content</label>
                         <textarea 
                             name="body"
                             value={body}
