@@ -13,7 +13,7 @@
 	li {
 		display: inline;
 		font-size: 23px;
-		margin-top: 10px;
+		margin-top: 20px;
 
 		a {
 			text-decoration: none;
@@ -38,6 +38,10 @@
 					color: #fff;
 				}
 
+				&.selected {
+					cursor: default;
+				  }
+
 			}
 
 			&.redux-category {
@@ -49,6 +53,10 @@
 			  &.selected {
 				  background: #ff9a38;
 				  color: #fff;
+			  }
+
+			  &.selected {
+				cursor: default;
 			  }
 
 			}
@@ -63,6 +71,10 @@
 				  background: #03b3e4;
 				  color: #fff;
 			  }
+
+			  &.selected {
+				cursor: default;
+			  }
 			}
 
 			&.remove-filter-category {
@@ -74,11 +86,6 @@
 					background: #000;
 					color: #fff;
 				}
-			}
-            
-
-			&:hover {
-				opacity: 0.7;
 			}
 		}
 	}

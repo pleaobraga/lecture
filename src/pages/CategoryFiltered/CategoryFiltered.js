@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Category from '../../components/Category/Category'
 import PostList from '../../components/Post/PostList/PostList'
+import OrderBy from '../../components/OrderBy/OrderBy'
 import { connect } from 'react-redux'
 import * as actions from '../../actions'
 import { Link } from 'react-router-dom'
@@ -19,25 +20,27 @@ export class CategoryFiltered extends Component {
   }
   
   render() {
-    let { filteredPosts } = this.props
+    let { filteredPosts, orderBy } = this.props
     const { category } = this.props.match.params
 
     return (      
       <div className="category-filtered">
           <h1> Lecture </h1>
           <Category removeFilter={true} filteredCategory={category}  />
+          <OrderBy order={orderBy} />
           <Link className='create-post' to='/create-post' >
               <i className="fa fa-plus" aria-hidden="true"></i>
               New Post
           </Link>
-          <PostList posts={filteredPosts} />
+          <PostList posts={filteredPosts} order={orderBy} />
       </div>
     );
   }
 }
 
-const mapStateToProps = state => ({
-  filteredPosts: state.post.filteredPosts
+const mapStateToProps = ({post, orderBy}) => ({
+  filteredPosts: post.filteredPosts,
+  orderBy: orderBy.name
 })
 
 const mapDispatchToProps = dispatch => ({

@@ -16,7 +16,7 @@
     padding: 10px 0;
     cursor: pointer; }
     .post-list .post-item:hover {
-      background: #e0dddd; }
+      background: #e1f2fd; }
     .post-list .post-item .main-informations {
       flex-direction: column;
       justify-content: space-around;

@@ -29,7 +29,7 @@ ReactDOM.render(
             <div className="lecture" >
                 <Switch>
                     <Route path="/create-post" component={CreatePost} />
-                    <Route path="/posts/:idPost" component={PostView} />
+                    <Route path="/:category/:idPost" component={PostView} />
                     <Route path="/:category" component={CategoryFiltered} />
                     <Route path="/" component={Home} />
                 </Switch>

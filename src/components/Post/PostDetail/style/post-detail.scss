@@ -8,6 +8,10 @@
         margin: 5px 0;
         color: #000;
         font-size: 22px;
+
+        &.deleted {
+            text-align: center;
+        }
     }
 
     .post-content {

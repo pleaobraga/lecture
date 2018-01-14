@@ -37,7 +37,7 @@ export class Category extends Component {
                     key={index} id={`category-${index}`} 
                     onClick={() => this.filteredPostsByCategory(category.name)} >
                     <Link 
-                        to={`/${category.name}/posts`} 
+                        to={`/${category.name}`} 
                         className={`${category.name}-category ${filteredCategory === category.name ? 'selected' : '' }`} >
                         {captalizeFirstLetter(category.name)}
                     </Link>   

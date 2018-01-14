@@ -10,7 +10,7 @@
   .horizontal-list li {
     display: inline;
     font-size: 23px;
-    margin-top: 10px; }
+    margin-top: 20px; }
     .horizontal-list li a {
       text-decoration: none;
       color: white;
@@ -49,8 +49,6 @@
         .horizontal-list li a.remove-filter-category:hover {
           background: #000;
           color: #fff; }
-      .horizontal-list li a:hover {
-        opacity: 0.7; }
 
 .filter-explain {
   font-size: 12px;

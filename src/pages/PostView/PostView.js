@@ -5,6 +5,7 @@ import CommentsList from '../../components/Comments/CommentsList/CommentsList'
 import { connect } from 'react-redux'
 import * as actions from '../../actions/index'
 import { Link } from 'react-router-dom'
+import _ from 'lodash'
 import './style/post-view.css'
 
 export class PostView extends Component {
@@ -42,7 +43,13 @@ export class PostView extends Component {
                     Back to post list
                 </Link>
                 {this.renderPostComponent(post, this.editingPost)}
-                <CommentsList comments={comments} idPost={idPost} />
+                {
+                    !_.isEmpty(post) &&
+                    <CommentsList 
+                    comments={comments} 
+                    idPost={idPost}  />
+                }
+                
             </div>
 
         );

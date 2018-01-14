@@ -6,6 +6,8 @@
     margin: 5px 0;
     color: #000;
     font-size: 22px; }
+    .post-detail h3.title.deleted {
+      text-align: center; }
   .post-detail .post-content {
     display: flex;
     flex-direction: column;
