@@ -18,8 +18,9 @@ function PostDetail(props) {
                 .catch(erro => console.log(erro))
     }
 
+
     function deletPost() {
-        api.deletePost(props.post.id)
+        props.deletePost(props.post.id)
             .then(() => {
                 props.history.push(`/`);
             })
@@ -94,7 +95,8 @@ function PostDetail(props) {
 
 const mapDispatchToProps = dispatch => ({
     votePost: (vote, post) => dispatch(actions.post.votePost(vote, post)),
-    editPost: post => dispatch(actions.post.editPost(post)) 
+    editPost: post => dispatch(actions.post.editPost(post)),
+    deletePost: (idPost) => dispatch(actions.post.deletePost(idPost)) 
 })
 
 export default withRouter(connect(null, mapDispatchToProps)(PostDetail))

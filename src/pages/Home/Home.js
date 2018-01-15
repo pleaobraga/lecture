@@ -39,7 +39,7 @@ const mapStateToProps = ({post, orderBy}) => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-    getAllPosts: () => dispatch(actions.post.getAllPosts()),
+    getAllPosts: () => dispatch(actions.post.getAllPosts())
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home);

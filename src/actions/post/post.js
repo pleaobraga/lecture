@@ -2,7 +2,7 @@ import * as api from '../../Utils/apiUtils'
 import * as constant from '../../Utils/constants'
 
 
-const getAllPostsSuccess = (posts) => ({
+const getAllPostsSuccess = posts => ({
     type: constant.GET_ALL_POSTS, 
     posts
 })
@@ -13,12 +13,12 @@ const getAllFilteredPostsSuccess = (filteredPosts, category) => ({
     category
 })
 
-const getPostDetailSuccess = (post) => ({
+const getPostDetailSuccess = post => ({
     type: constant.GET_POST_DETAIL,
     post
 })
 
-const editPostSuccess = (post) => ({
+const editPostSuccess = post => ({
     type: constant.EDIT_POST,
     post
 })
@@ -27,6 +27,11 @@ const votePostSuccess = (post, vote) => ({
     type: constant.VOTE_POST,
     post,
     vote
+})
+
+const deletePostSuccess = post => ({
+    type: constant.DELETE_POST,
+    post
 })
 
 export const getAllPosts = () => dispatch => {
@@ -70,6 +75,15 @@ export const votePost = (vote, post) => dispatch =>  {
         .then(response => {
             dispatch(votePostSuccess(response.data, vote))
             response.data.voted = vote.split('Vote')[0]
+            return response.data
+        })
+        .catch( error => console.log(error))
+} 
+
+export const deletePost = (id) => dispatch =>  {
+    return api.deletePost(id)
+        .then(response => {
+            dispatch(deletePostSuccess(response.data))
             return response.data
         })
         .catch( error => console.log(error))
