@@ -87,5 +87,5 @@ export const deletePost = (id) => dispatch =>  {
             return response.data
         })
         .catch( error => console.log(error))
-} 
+}
 

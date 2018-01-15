@@ -43,6 +43,7 @@ function PostDetail(props) {
                 author, 
                 category, 
                 voteScore, 
+                commentCount,
                 timestamp } = props.post
     
             return (
@@ -69,6 +70,10 @@ function PostDetail(props) {
                                 </i>
                                 <i className="fa fa-star" aria-hidden="true" ></i>
                                 <span className="score" >{voteScore}</span>
+                            </div>
+                            <div className='score-area' >
+                                <i className="fa fa-comments" aria-hidden="true" ></i>
+                                <span>{commentCount}</span>
                             </div>
                             <div className='action-buttons' >
                                 <button 

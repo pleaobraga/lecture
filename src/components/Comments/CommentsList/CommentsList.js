@@ -13,7 +13,8 @@ import { connect } from 'react-redux'
         this.state = { editCommentList: [], createComment: false }
     }
 
-    removeElementFromCommentList(comment) {
+    //remove comment from edit mode
+    removeElementFromEditCommentList(comment, idPost) {
         const { editCommentList } = this.state
         const index = editCommentList.indexOf(comment.id);
 
@@ -22,7 +23,8 @@ import { connect } from 'react-redux'
         this.setState({editCommentList})
     }
 
-    addElementToCommentList(comment) {
+    //add comment to show edit mode
+    addElementToEditCommentList(comment, idPost) {
         const { editCommentList } = this.state
         editCommentList.push(comment.id)
         
@@ -43,11 +45,14 @@ import { connect } from 'react-redux'
                 .catch(erro => console.log(erro))
     }
 
-    deleteComent(comment) {
+    deleteComent(comment, idPost) {
         this.props.deleteComment(comment)
+            .then(() => {
+                this.props.getPostDetail(idPost)
+            })
     }
 
-    renderComment (comment) {
+    renderComment (comment, idPost) {
         let {
               id,
               timestamp,
@@ -82,12 +87,12 @@ import { connect } from 'react-redux'
                         <div className='action-buttons' >
                             <button 
                                 className="edit" 
-                                onClick={() => this.addElementToCommentList(comment) } >
+                                onClick={() => this.addElementToEditCommentList(comment) } >
                                 Edit
                             </button>
                             <button 
                                 className="delete"  
-                                onClick={() => this.deleteComent(comment.id) } >
+                                onClick={() => this.deleteComent(comment.id, idPost) } >
                                 Delete
                             </button>
                         </div>
@@ -97,16 +102,16 @@ import { connect } from 'react-redux'
         )
     }
 
-    //render form case edit button were clicked
-    renderCommentsItems (comments = []) {
+    //render CommentsForm case edit button were clicked
+    renderCommentsItems (comments = [], idPost) {
         return comments.map(comment => {
             return this.state.editCommentList.indexOf(comment.id) === -1  ? 
-                this.renderComment(comment) 
+                this.renderComment(comment, idPost) 
                 : <CommentsForm 
                     key={comment.id} 
                     comment={comment} 
                     idPost={this.props.idPost}  
-                    cancel={this.removeElementFromCommentList.bind(this)} />
+                    cancel={this.removeElementFromEditCommentList.bind(this)} />
         })
     }
 
@@ -127,14 +132,13 @@ import { connect } from 'react-redux'
                         </button>
                     }
                 </div>
-                
                 { 
                     this.state.createComment && 
                     <CommentsForm 
                         idPost={idPost}  
                         cancel={this.calcelCreateComment.bind(this)} />  
                 }
-                {this.renderCommentsItems(comments)}
+                {this.renderCommentsItems(comments, idPost)}
             </div>
         )
     }
@@ -143,7 +147,8 @@ import { connect } from 'react-redux'
 const mapDispatchToProps = dispatch => ({
     voteComment: (vote, comment) => dispatch(actions.comments.voteComment(vote, comment)),
     editComment: comment => dispatch(actions.comments.editComment(comment)),
-    deleteComment: comment => dispatch(actions.comments.deleteComment(comment))
+    deleteComment: comment => dispatch(actions.comments.deleteComment(comment)),
+    getPostDetail: (idPost) => dispatch(actions.post.getPostDetail(idPost))
 })
 
 export default connect(null, mapDispatchToProps)(CommentsList)

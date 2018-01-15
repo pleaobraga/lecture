@@ -87,6 +87,7 @@ export class CommentsForm extends Component {
         if(!this.hasCommentFiedsError()) 
             this.props.createComment(comment)
                 .then(() => {  
+                    this.props.getPostDetail(this.props.idPost)
                     this.props.cancel(comment)
                 })
                 .catch(error => {
@@ -167,7 +168,8 @@ export class CommentsForm extends Component {
 
 const mapDispatchToProps = dispatch => ({
     editComment: (comment) => dispatch(actions.comments.editComment(comment)),
-    createComment: (comment) => dispatch(actions.comments.createComment(comment))
+    createComment: (comment) => dispatch(actions.comments.createComment(comment)),
+    getPostDetail: (idPost) => dispatch(actions.post.getPostDetail(idPost))
 })
   
   
