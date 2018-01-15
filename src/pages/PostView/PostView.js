@@ -10,15 +10,21 @@ import './style/post-view.css'
 
 export class PostView extends Component {
 
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = { editPost: false }
     }
 
     componentDidMount() {
-        const { idPost } = this.props.match.params
+        const { idPost, edit } = this.props.match.params
         this.props.getPostDetail(idPost)
         this.props.getPostComments(idPost)
+    }
+
+    componentWillReceiveProps(nextProps) {
+        let { edit } = this.props.match.params
+        edit = edit === 'true' ? true : false
+        nextProps.post ? this.setState({editPost: edit}) : null
     }
 
     
@@ -27,9 +33,10 @@ export class PostView extends Component {
     }
 
     renderPostComponent(post, editingPost) {
-        return !this.state.editPost ? 
-            <PostDetail post={post} editingPost={editingPost.bind(this)} /> 
-            : <PostForm post={post} editingPost={editingPost.bind(this)} />
+        return this.state.editPost 
+            ? <PostForm post={post} editingPost={editingPost.bind(this)} />
+            : <PostDetail post={post} editingPost={editingPost.bind(this)} /> 
+           
     }
 
     render() {
@@ -49,9 +56,7 @@ export class PostView extends Component {
                     comments={comments} 
                     idPost={idPost}  />
                 }
-                
             </div>
-
         );
     }
 } 

@@ -86,7 +86,6 @@ function PostDetail(props) {
                     </div>
                 </div>
             )
-
         } 
     } else {
         return null

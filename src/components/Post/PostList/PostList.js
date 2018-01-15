@@ -14,7 +14,11 @@ class PostList extends Component {
     }
     
     showPostDetail (category, id) {
-        this.props.history.push(`/${category}/${id}`);
+        this.props.history.push(`/${category}/${id}/false`);
+    }
+
+    editPost (category, id) {
+        this.props.history.push(`/${category}/${id}/true`);
     }
 
      voteOnPost(vote, post) {
@@ -32,11 +36,11 @@ class PostList extends Component {
     }
 
     showActions(id) {
-        document.querySelector(`div[idpost='${0}-action']`).classList.add('show')
+        document.querySelector(`div[idpost='${id}-action']`).classList.add('show')
     }
 
     removeActions(id) {
-        document.querySelector(`div[idpost='${0}-action']`).classList.remove('show')
+        document.querySelector(`div[idpost='${id}-action']`).classList.remove('show')
     }
 
     
@@ -71,7 +75,7 @@ class PostList extends Component {
                             <i className='fa fa-trash' onClick={() => this.deletPost(post.id)} ></i>
                         </div>
                         <div className='edit' >
-                            <i className='fa fa-pencil' ></i>
+                            <i className='fa fa-pencil' onClick={ () => this.editPost(post.category, post.id)} ></i>
                         </div>
                         <div className='vote' >
                             <i 
