@@ -137,17 +137,30 @@
             }
         }
 
-        .actions {
+        .show {
             display: flex;
+        }
+
+        .actions {
             flex-direction: column;
             justify-content: space-between;
             width: 35px;
             position: absolute;
             right: -45px;
             height: 80%;
+            display: none;
+
+            &.show {
+                display: flex;
+            }
 
             i {
                 cursor: pointer;
+
+                &.fa-thumbs-up, 
+                &.fa-thumbs-down {
+                    cursor: default;
+                }
             }
 
             .delete,

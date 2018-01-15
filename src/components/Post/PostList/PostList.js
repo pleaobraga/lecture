@@ -31,11 +31,23 @@ class PostList extends Component {
         this.props.deletePost(id)
     }
 
+    showActions(id) {
+        document.querySelector(`div[idpost='${0}-action']`).classList.add('show')
+    }
+
+    removeActions(id) {
+        document.querySelector(`div[idpost='${0}-action']`).classList.remove('show')
+    }
+
     
     renderPostItem(posts = []) {
-        return utils.sortListByAttribute(posts, this.props.order).map( post => {
+        return utils.sortListByAttribute(posts, this.props.order).map( (post, index) => {
             return(
-                <div key= {post.id} className='post-card' >
+                <div 
+                    key={post.id} 
+                    className='post-card' 
+                    onMouseEnter={() => this.showActions(index) }  
+                    onMouseLeave={() => this.removeActions(index)} >
                     <div  className='post-item' 
                      onClick={() => this.showPostDetail(post.category, post.id)} 
                     >
@@ -54,7 +66,7 @@ class PostList extends Component {
                             </div>
                         </div>
                     </div>
-                    <div className='actions' >
+                    <div idpost={`${index}-action`} className='actions' >
                         <div className='delete' >
                             <i className='fa fa-trash' onClick={() => this.deletPost(post.id)} ></i>
                         </div>

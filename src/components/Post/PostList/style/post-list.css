@@ -92,16 +92,22 @@
         .post-list .post-card .post-item .second-informations .category,
         .post-list .post-card .post-item .second-informations .comments {
           text-align: center; }
+    .post-list .post-card .show {
+      display: flex; }
     .post-list .post-card .actions {
-      display: flex;
       flex-direction: column;
       justify-content: space-between;
       width: 35px;
       position: absolute;
       right: -45px;
-      height: 80%; }
+      height: 80%;
+      display: none; }
+      .post-list .post-card .actions.show {
+        display: flex; }
       .post-list .post-card .actions i {
         cursor: pointer; }
+        .post-list .post-card .actions i.fa-thumbs-up, .post-list .post-card .actions i.fa-thumbs-down {
+          cursor: default; }
       .post-list .post-card .actions .delete,
       .post-list .post-card .actions .edit {
         justify-content: center; }
