@@ -5,12 +5,12 @@ import { constants } from 'zlib';
 
 const posts = function(state = {}, action) {
 
-    let { posts } = state
-    let index
+    let { posts, filteredPosts } = state
+    let index, activatedPosts, activateFilteredPost
 
     switch(action.type) {
         case constant.GET_ALL_POSTS: 
-            let activatedPosts = action.posts.filter(post => post.deleted === false)
+            activatedPosts = action.posts.filter(post => post.deleted === false)
             return {...state, posts: activatedPosts}
 
         case constant.GET_CATEGORY_POSTS:
@@ -28,14 +28,18 @@ const posts = function(state = {}, action) {
             action.post.voted = action.vote.split('Vote')[0] 
             index = _.findIndex(posts, post => post.id === action.post.id )
             posts[index] = action.post
-            return {...state, postDetail: action.post, posts}
+            index = _.findIndex(filteredPosts, post => post.id === action.post.id )
+            index >= 0 ? filteredPosts[index] = action.post : null
+            return {...state, postDetail: action.post, posts, filteredPosts}
             
         case constant.DELETE_POST:
             index =_.findIndex(posts, post => post.id === action.post.id )
             posts[index] = action.post;
             activatedPosts = posts.filter(post => post.deleted === false)
-            activatedPosts = sortListByAttribute(activatedPosts, 'voteScore')
-            return {...state, posts: activatedPosts} 
+            index = _.findIndex(filteredPosts, post => post.id === action.post.id )
+            index >= 0 ? filteredPosts[index] = action.post : null
+            activateFilteredPost = filteredPosts.filter(post => post.deleted === false)
+            return {...state, posts: activatedPosts, filteredPosts: activateFilteredPost} 
         
         default: 
             return state
