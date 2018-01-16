@@ -14,14 +14,18 @@ import 'normalize.css'
 import './index.css'
 import 'font-awesome/css/font-awesome.min.css';
 
+const composeEnhancers =
+  typeof window === 'object' &&
+  window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ ?   
+    window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({
+    }) : compose;
 
-const store = createStore(
-    rootReducers,
-    compose(
-        applyMiddleware(thunk),
-        window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-    )
-)
+const enhancer = composeEnhancers(
+  applyMiddleware(thunk),
+);
+
+const store = createStore(rootReducers, enhancer);
+
 
 ReactDOM.render(
     <Provider store={store} >

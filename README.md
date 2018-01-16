@@ -4,6 +4,7 @@ This project is a small blog which you can add and delete posts, vote and commen
 
 ## Init
 
+install all depedences running npm install in lecture folder
 to start the application run npm start
 
 ## Api
