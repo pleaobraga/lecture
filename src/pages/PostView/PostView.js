@@ -16,11 +16,12 @@ export class PostView extends Component {
     }
 
     componentDidMount() {
-        let { idPost, edit } = this.props.match.params
+        let { idPost } = this.props.match.params
         this.props.getPostDetail(idPost)
         this.props.getPostComments(idPost)
-        edit = edit === 'true' ? true : false
-        this.setState({editPost: edit})
+        debugger
+        const editPost =  this.props.location.state ? this.props.location.state.editPost : null
+        editPost !== null ? this.setState({editPost}) : ''
     }
 
     

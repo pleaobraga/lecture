@@ -14,11 +14,15 @@ class PostList extends Component {
     }
     
     showPostDetail (category, id) {
-        this.props.history.push(`/${category}/${id}/false`);
+        this.props.history.push(`/${category}/${id}`);
     }
 
     editPost (category, id) {
-        this.props.history.push(`/${category}/${id}/true`);
+        const location = {
+            pathname: `/${category}/${id}`,
+            state: { editPost: true }
+          }
+        this.props.history.push(location);
     }
 
      voteOnPost(vote, post) {
