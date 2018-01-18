@@ -22,6 +22,7 @@ class PostList extends Component {
             pathname: `/${category}/${id}`,
             state: { editPost: true }
           }
+          
         this.props.history.push(location);
     }
 

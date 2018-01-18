@@ -19,7 +19,6 @@ export class PostView extends Component {
         let { idPost } = this.props.match.params
         this.props.getPostDetail(idPost)
         this.props.getPostComments(idPost)
-        debugger
         const editPost =  this.props.location.state ? this.props.location.state.editPost : null
         editPost !== null ? this.setState({editPost}) : ''
     }
@@ -29,8 +28,8 @@ export class PostView extends Component {
         this.setState({editPost: value});
     }
 
-    renderPostComponent(post, editingPost) {
-        return this.state.editPost 
+    renderPostComponent(post = {}, editingPost) {
+        return this.state.editPost && !_.isEmpty(post) 
             ? <PostForm post={post} editingPost={editingPost.bind(this)} />
             : <PostDetail post={post} editingPost={editingPost.bind(this)} /> 
            

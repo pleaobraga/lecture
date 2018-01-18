@@ -20,26 +20,19 @@ const posts = function(state = {}, action) {
             return {...state, postDetail: action.post}
 
         case constant.EDIT_POST:
-            index = _.findIndex(posts, post => post.id === action.post.id )
-            posts[index] = action.post
+            posts = editPost(posts, action.post)
             return {...state, postDetail: action.post, posts}
 
         case constant.VOTE_POST:
             action.post.voted = action.vote.split('Vote')[0] 
-            index = _.findIndex(posts, post => post.id === action.post.id )
-            posts[index] = action.post
-            index = _.findIndex(filteredPosts, post => post.id === action.post.id )
-            index >= 0 ? filteredPosts[index] = action.post : null
+            posts = editPost(posts, action.post)
+            filteredPosts = editPost(filteredPosts, action.post)
             return {...state, postDetail: action.post, posts, filteredPosts}
             
         case constant.DELETE_POST:
-            index =_.findIndex(posts, post => post.id === action.post.id )
-            posts[index] = action.post;
-            activatedPosts = posts.filter(post => post.deleted === false)
-            index = _.findIndex(filteredPosts, post => post.id === action.post.id )
-            index >= 0 ? filteredPosts[index] = action.post : null
-            activateFilteredPost = filteredPosts.filter(post => post.deleted === false)
-            return {...state, posts: activatedPosts, filteredPosts: activateFilteredPost} 
+            posts = removePost(posts, action.post)
+            filteredPosts = removePost(filteredPosts, action.post)
+            return {...state, posts, filteredPosts} 
         
         default: 
             return state
@@ -47,3 +40,15 @@ const posts = function(state = {}, action) {
 }
 
 export default posts;
+
+
+function editPost(posts = [] , newPost) {
+    return posts.map( post => {
+        if(post.id === newPost.id) post = newPost
+        return post
+    })
+} 
+
+function removePost(posts = [], newPost) {
+    return posts.filter( post =>  post.id !== newPost.id )
+} 
